@@ -1,7 +1,16 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+	import { Button } from '$lib/components/ui/button';
 	import Github from './Github.svelte';
 	import Mode from './Mode.svelte';
+	import * as Sheet from '$lib/components/ui/sheet';
+
+	$: open = false;
+	$: window.addEventListener('resize', () => {
+		if (window.innerWidth > 1024) {
+			open = false;
+		}
+	});
 
 	export let stars: string;
 
@@ -53,14 +62,55 @@
 		<div class="flex items-center justify-end gap-1.5 lg:flex-1">
 			<Mode />
 			<Github {stars} />
+			<div class="inline-flex lg:hidden">
+				<Sheet.Root bind:open>
+					<Sheet.Trigger>
+						<Button
+							class="h-8 w-8 border-0 px-0 py-0 text-foreground shadow-none"
+							variant="outline"
+						>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								class="h-6 w-6"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke="currentColor"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M4 6h16M4 12h16M4 18h16"
+								/>
+							</svg>
+						</Button>
+					</Sheet.Trigger>
+					<Sheet.Content side="left">
+						<Sheet.Header>
+							<Sheet.Title class="text-left">菜单</Sheet.Title>
+							<Sheet.Description class="text-left">请选择你要前往的页面</Sheet.Description>
+						</Sheet.Header>
+						<ul class="mt-2">
+							{#each navs as nav}
+								<li
+									aria-current={$page.url.pathname === nav.href ? 'page' : undefined}
+									class="py-2"
+								>
+									<a on:click={() => (open = false)} href={nav.href}>{nav.name}</a>
+								</li>
+							{/each}
+						</ul>
+					</Sheet.Content>
+				</Sheet.Root>
+			</div>
 		</div>
 	</div>
 </header>
 
 <style lang="postcss">
 	header {
-		@apply border-b border-gray-200 bg-background backdrop-blur;
-		@apply sticky top-0 z-50 -mb-px dark:border-gray-800 lg:mb-0 lg:border-0;
+		@apply border-b bg-background/75 backdrop-blur;
+		@apply sticky top-0 z-50 -mb-px border-border lg:mb-0 lg:border-0;
 	}
 
 	li {
