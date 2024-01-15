@@ -101,11 +101,11 @@ fun onJoin(e: PlayerJoinEvent) {
 				TabooLib提供了一个简单的命令注册dsl，可以让你在几行代码内完成命令的注册。
 			</p>
 			<div class="mt-8 flex flex-wrap gap-x-3 gap-y-1.5">
-				<Button href="/register-command">注册实例</Button>
+				<Button href="/examples/command">注册实例</Button>
 				<Button
 					class="border-primary text-primary hover:text-primary"
 					variant="outline"
-					href="/docs/command"
+					href="/docs"
 				>
 					命令文档
 				</Button>
@@ -130,11 +130,11 @@ fun onJoin(e: PlayerJoinEvent) {
 				TabooLib提供了一个简单的事件监听注解，可以让你在几行代码内完成事件的监听。
 			</p>
 			<div class="mt-8 flex flex-wrap gap-x-3 gap-y-1.5">
-				<Button href="/register-command">监听器实例</Button>
+				<Button href="/examples/listener">监听器实例</Button>
 				<Button
 					class="border-primary text-primary hover:text-primary"
 					variant="outline"
-					href="/docs/command"
+					href="/docs"
 				>
 					监听器文档
 				</Button>
