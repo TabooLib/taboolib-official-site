@@ -43,7 +43,7 @@
 		},
 		{
 			name: '优秀案例',
-			href: '/showcase'
+			href: '/showcases'
 		}
 	];
 </script>
