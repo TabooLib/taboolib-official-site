@@ -55,7 +55,7 @@
 		<div class="flex items-center gap-1.5 lg:flex-1">
 			<a href="/" class="flex items-center gap-1">
 				<div
-					class="flex items-center rounded-md px-2 py-1 text-2xl font-semibold text-primary hover:bg-muted"
+					class="pixel-10 flex items-center rounded-md px-2 py-1 text-2xl font-semibold text-primary hover:bg-muted"
 				>
 					<div class="opacity-80">Taboo</div>
 					<div class="font-bold text-opacity-100">Lib</div>

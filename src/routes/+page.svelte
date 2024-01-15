@@ -118,8 +118,7 @@ fun onJoin(e: PlayerJoinEvent) {
 	<div
 		class="mx-auto grid max-w-7xl gap-16 px-4 sm:gap-y-24 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8"
 	>
-		<Highlight language={kotlin} code={subscribeEventCode} />
-		<div>
+		<div class="lg:order-last">
 			<h2
 				class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl lg:text-5xl"
 			>
@@ -140,6 +139,7 @@ fun onJoin(e: PlayerJoinEvent) {
 				</Button>
 			</div>
 		</div>
+		<Highlight language={kotlin} code={subscribeEventCode} />
 	</div>
 </div>
 <div class="from-gray-900 to-gray-950 py-24 sm:py-32">
@@ -204,7 +204,7 @@ fun onJoin(e: PlayerJoinEvent) {
 		white-space: pre-wrap;
 		word-break: break-word;
 		overflow-x: auto;
-		@apply rounded-lg !px-8 !py-8;
+		@apply rounded-lg !px-6 !py-6;
 	}
 	:global(.hljs-keyword) {
 		@apply !text-primary;
