@@ -49,7 +49,6 @@
 </script>
 
 <header>
-	{import.meta.env.VITE_GITHUB_TOKEN}
 	<div
 		class="mx-auto flex h-[4rem] max-w-7xl items-center justify-between gap-3 px-4 sm:px-6 lg:px-8"
 	>
