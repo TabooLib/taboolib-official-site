@@ -6,10 +6,20 @@
 	import * as Sheet from '$lib/components/ui/sheet';
 
 	$: open = false;
-	$: window.addEventListener('resize', () => {
-		if (window.innerWidth > 1024) {
-			open = false;
+	import { onMount } from 'svelte';
+
+	onMount(() => {
+		function handleResize() {
+			if (window.innerWidth > 1024) {
+				open = false;
+			}
 		}
+
+		window.addEventListener('resize', handleResize);
+
+		return () => {
+			window.removeEventListener('resize', handleResize);
+		};
 	});
 
 	export let stars: string;
@@ -39,6 +49,7 @@
 </script>
 
 <header>
+	{import.meta.env.VITE_GITHUB_TOKEN}
 	<div
 		class="mx-auto flex h-[4rem] max-w-7xl items-center justify-between gap-3 px-4 sm:px-6 lg:px-8"
 	>

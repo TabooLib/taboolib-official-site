@@ -3,6 +3,17 @@ import { twMerge } from 'tailwind-merge';
 import { cubicOut } from 'svelte/easing';
 import type { TransitionConfig } from 'svelte/transition';
 
+export function fetchWithGithubAuth(url: string, options?: RequestInit) {
+	return fetch(url, {
+		...options,
+		headers: {
+			...options?.headers,
+			Authorization: `Bearer ${import.meta.env.VITE_GITHUB_TOKEN}`
+		},
+		cache: 'no-cache'
+	});
+}
+
 export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs));
 }
