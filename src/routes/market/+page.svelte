@@ -16,6 +16,17 @@
 
 	$: list = data.list;
 
+	$: content = list.filter((item) => {
+		if (currentCategory !== 'all' && !containsCategory(item.categories, currentCategory)) {
+			return false;
+		}
+		return true;
+	});
+
+	function containsCategory(categories: any[], category: string) {
+		return categories.find((c) => c === category) !== undefined;
+	}
+
 	function changeType(type: string) {
 		goto(`/market?type=${type}&category=all`);
 	}
@@ -194,7 +205,7 @@
 					</div>
 				</div>
 				<div class="grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-3">
-					{#each list as item}
+					{#each content as item}
 						<div class="group relative flex flex-col" use:reveal>
 							<div
 								class="relative flex flex-1 flex-col overflow-hidden rounded-xl bg-card shadow ring-1 ring-border transition duration-200 hover:ring-2 hover:ring-primary"
