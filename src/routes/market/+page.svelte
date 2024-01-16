@@ -195,11 +195,11 @@
 				</div>
 				<div class="grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-3">
 					{#each list as item}
-						<div use:reveal>
+						<div class="group relative flex flex-col" use:reveal>
 							<div
-								class="overflow-hidden rounded-xl bg-card shadow ring-1 ring-border transition duration-200 hover:ring-2 hover:ring-primary"
+								class="relative flex flex-1 flex-col overflow-hidden rounded-xl bg-card shadow ring-1 ring-border transition duration-200 hover:ring-2 hover:ring-primary"
 							>
-								<a href="/market/{item.type}/{item.name}">
+								<a class="relative flex flex-1 flex-col" href="/market/{item.type}/{item.name}">
 									<div class="flex-1 px-4 py-5 sm:p-6">
 										<div
 											class="mb-6 flex select-none text-4xl font-bold"
