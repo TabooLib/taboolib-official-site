@@ -8,20 +8,24 @@
 
 	export let data: PageData;
 
-	let types = data.types;
-	let currentType = data.type;
+	$: types = data.types;
+	$: currentType = $page.url.searchParams.get('type') || 'all';
 
-	let categories = data.categories;
-	let currentCategory = data.category;
+	$: categories = data.categories;
+	$: currentCategory = $page.url.searchParams.get('category') || 'all';
 
-	let content = data.content;
+	$: list = data.list;
 
-	$: search();
+	function changeType(type: string) {
+		goto(`/market?type=${type}&category=all`);
+	}
 
-	function search() {
-		$page.url.searchParams.set('type', currentType);
-		$page.url.searchParams.set('category', currentCategory);
-		goto(`?${$page.url.searchParams.toString()}`);
+	function changeCategory(category: string) {
+		goto(`/market?type=${currentType}&category=${category}`);
+	}
+
+	function getColor(type: string) {
+		return types.find((t) => t.name === type)?.color || 'primary';
 	}
 
 	const hots = [
@@ -129,8 +133,7 @@
 												class="my-2 h-full flex-1 pl-4 text-left text-sm font-semibold text-gray-400 transition duration-200 ease-in-out hover:text-primary dark:text-gray-300 dark:hover:text-primary"
 												class:selected={category.name === currentCategory}
 												on:click={() => {
-													currentCategory = category.name;
-													search();
+													changeCategory(category.name);
 												}}
 											>
 												{category.title}
@@ -178,8 +181,7 @@
 								class="rounded-md pb-2 pr-4 font-medium text-gray-900 transition-colors duration-200 ease-in-out hover:text-primary dark:text-white dark:hover:text-primary"
 								class:selected={type.name === currentType}
 								on:click={() => {
-									currentType = type.name;
-									search();
+									changeType(type.name);
 								}}
 							>
 								{type.title}
@@ -192,14 +194,17 @@
 					</div>
 				</div>
 				<div class="grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-3">
-					{#each content as item}
+					{#each list as item}
 						<div use:reveal>
 							<div
 								class="overflow-hidden rounded-xl bg-card shadow ring-1 ring-border transition duration-200 hover:ring-2 hover:ring-primary"
 							>
 								<a href="/market/{item.type}/{item.name}">
 									<div class="flex-1 px-4 py-5 sm:p-6">
-										<div class="mb-6 flex select-none text-4xl font-bold">
+										<div
+											class="mb-6 flex select-none text-4xl font-bold"
+											style="color: {getColor(item.type)};"
+										>
 											{item.type.charAt(0).toUpperCase()}
 										</div>
 										<p
@@ -209,7 +214,7 @@
 										</p>
 										<p class="mt-1 text-[15px] text-gray-500 dark:text-gray-400">
 											<span class="line-clamp-2">
-												TabooLib提供了一个简单的UI构建工具，可以让你高效快速的构建UI界面。
+												{item.description}
 											</span>
 										</p>
 									</div>

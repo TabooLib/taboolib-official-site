@@ -5,9 +5,10 @@ type Category = {
 	title: string;
 };
 
-type Type = {
+export type Type = {
 	name: string;
 	title: string;
+	color: string;
 };
 
 type Content = {
@@ -19,57 +20,22 @@ type Content = {
 };
 
 export const load = (async ({ fetch, url }) => {
-	const types: Type[] = [
-		{ name: 'all', title: '全部' },
-		{ name: 'platforms', title: '平台' },
-		{ name: 'modules', title: '模块' },
-		{ name: 'expansions', title: '扩展' },
-		{ name: 'templates', title: '模板' }
-	];
-	const type = url.searchParams.get('type') ?? 'all';
-	const category = url.searchParams.get('category') ?? 'all';
-	const categories: Category[] = [
-		{ name: 'all', title: '全部' },
-		{ name: 'utils', title: '工具' },
-		{ name: 'data', title: '数据' },
-		{ name: 'misc', title: '杂项' }
-	];
+	const BASE_URL = import.meta.env.VITE_DATA_URL;
+	const types: Type[] = await fetch(BASE_URL + '/components').then((res) => res.json());
 
-	const content: Content[] = [
-		{
-			name: 'UI',
-			type: 'modules',
-			categories: [],
-			title: 'UI',
-			description: 'TabooLib提供了一个简单的UI构建工具，可以让你高效快速的构建UI界面。'
-		},
-		{
-			name: 'Data',
-			type: 'modules',
-			categories: [],
-			title: 'Data',
-			description: 'TabooLib提供了一个简单的数据存储工具，可以让你高效快速的存储数据。'
-		},
-		{
-			name: 'Misc',
-			type: 'modules',
-			categories: [],
-			title: 'Misc',
-			description: 'TabooLib提供了一些杂项工具，可以让你高效快速的完成一些杂项工作。'
-		},
-		{
-			name: 'NMS',
-			type: 'modules',
-			categories: [],
-			title: 'NMS',
-			description: 'TabooLib提供了一个简单的NMS工具，可以让你高效快速的构建NMS代码。'
-		}
-	];
+	const type = url.searchParams.get('type') ?? 'all';
+	const categories: Category[] = await fetch(
+		BASE_URL +
+			'/categories?' +
+			new URLSearchParams({
+				type
+			})
+	).then((res) => res.json());
+
+	const list: Content[] = await fetch(BASE_URL + '/components/' + type).then((res) => res.json());
 	return {
-		type,
-		category,
 		types,
 		categories,
-		content
+		list
 	};
 }) satisfies PageServerLoad;
