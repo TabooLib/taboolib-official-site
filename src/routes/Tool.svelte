@@ -6,7 +6,7 @@
 </script>
 
 <div
-	use:reveal
+	use:reveal={{ transition: 'scale' }}
 	class="pixel-12 background-card relative isolate flex flex-1 cursor-pointer flex-col overflow-hidden rounded-xl border border-gray-200 transition-colors hover:border-primary dark:border-gray-800 dark:hover:border-primary"
 >
 	<div class="flex flex-1 flex-col gap-x-8 gap-y-4 rounded-xl px-4 py-5 dark:bg-gray-900/50 sm:p-6">

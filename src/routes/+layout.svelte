@@ -75,7 +75,7 @@
 				<div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-12">
 					<div class="xl:grid xl:grid-cols-2 xl:gap-8">
 						<div
-							use:reveal
+							use:reveal={{ transition: 'slide' }}
 							class="flex auto-cols-fr grid-flow-col flex-col gap-8 lg:grid xl:col-span-2"
 						>
 							{#each links as { title, items }}
