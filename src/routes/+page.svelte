@@ -6,7 +6,7 @@
 	import nord from 'svelte-highlight/styles/nord';
 	import Tool from './Tool.svelte';
 	import TaboolibIcon from '$lib/components/TaboolibIcon.svelte';
-	import { fade } from 'svelte/transition';
+	import { reveal } from 'svelte-reveal';
 
 	const registerCommandCode = `command("tp") {
     literal("random") {
@@ -33,6 +33,50 @@ fun onJoin(e: PlayerJoinEvent) {
 		player.sendMessage("You are op")
 	}
 }`;
+
+	const tools = [
+		{
+			title: '箱子菜单构建',
+			description:
+				'TabooLib提供了一个简单的箱子菜单构建工具，可以让你高效快速的构建仓库/商店/多页菜单等内容。',
+			href: '/docs/menu'
+		},
+		{
+			title: '物品构建',
+			description: 'TabooLib提供了一个简单的物品构建工具，可以让你更加方便的构建物品。',
+			href: '/docs/item'
+		},
+		{
+			title: 'NMS',
+			description: 'TabooLib提供了一个简单的NMS工具，可以让你用简单的代码完成NMS的操作。',
+			href: '/docs/nms'
+		},
+		{
+			title: '配置文件',
+			description: 'TabooLib提供了一个简单的配置文件工具，可以让你轻松实现配置文件的读写。',
+			href: '/docs/config'
+		},
+		{
+			title: '国际化',
+			description: 'TabooLib提供了一个简单的国际化工具，可以让你的插件支持多语言。',
+			href: '/docs/i18n'
+		},
+		{
+			title: '数据库',
+			description: 'TabooLib提供了一个简单的数据库工具，可以让你轻松实现数据库的读写。',
+			href: '/docs/database'
+		},
+		{
+			title: '粒子效果',
+			description: 'TabooLib提供了一个简单的粒子效果工具，可以让你轻松实现粒子效果的创建与播放。',
+			href: '/docs/particle'
+		},
+		{
+			title: '寻路',
+			description: 'TabooLib提供了一个简单的寻路工具，可以让你轻松实现寻路算法的使用。',
+			href: '/docs/pathfinder'
+		}
+	];
 </script>
 
 <svelte:head>
@@ -44,7 +88,10 @@ fun onJoin(e: PlayerJoinEvent) {
 	{@html nord}
 </svelte:head>
 
-<div class="relative from-gray-950 to-gray-900 py-24 sm:py-32 md:py-40">
+<div
+	use:reveal={{ transition: 'fade' }}
+	class="relative from-gray-950 to-gray-900 py-24 sm:py-32 md:py-40"
+>
 	<TaboolibIcon class="absolute inset-x-0 top-6 hidden h-[40rem] w-full lg:block" />
 	<div class="mx-auto flex max-w-7xl flex-col gap-16 px-4 sm:gap-y-24 sm:px-6 lg:px-8">
 		<div class="relative z-[1] text-center">
@@ -88,6 +135,7 @@ fun onJoin(e: PlayerJoinEvent) {
 </div>
 <div class="dark bg-background py-24 sm:py-32">
 	<div
+		use:reveal
 		class="mx-auto grid max-w-7xl gap-16 px-4 sm:gap-y-24 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8"
 	>
 		<div>
@@ -116,6 +164,7 @@ fun onJoin(e: PlayerJoinEvent) {
 </div>
 <div class="dark bg-background py-24 sm:py-32">
 	<div
+		use:reveal
 		class="mx-auto grid max-w-7xl gap-16 px-4 sm:gap-y-24 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8"
 	>
 		<div class="lg:order-last">
@@ -144,7 +193,7 @@ fun onJoin(e: PlayerJoinEvent) {
 </div>
 <div class="from-gray-900 to-gray-950 py-24 sm:py-32">
 	<div class="mx-auto flex max-w-7xl flex-col gap-16 px-4 sm:gap-y-24 sm:px-6 lg:px-8">
-		<div class="flex flex-col items-center text-center">
+		<div use:reveal class="flex flex-col items-center text-center">
 			<h2
 				class="pixel-12 text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl lg:text-5xl"
 			>
@@ -153,46 +202,9 @@ fun onJoin(e: PlayerJoinEvent) {
 			</h2>
 		</div>
 		<div class="grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-4">
-			<Tool
-				title="箱子菜单构建"
-				description="TabooLib提供了一个简单的箱子菜单构建工具，可以让你高效快速的构建仓库/商店/多页菜单等内容。"
-				href="/docs/menu"
-			/>
-			<Tool
-				title="物品构建"
-				description="TabooLib提供了一个简单的物品构建工具，可以让你更加方便的构建物品。"
-				href="/docs/item"
-			/>
-			<Tool
-				title="NMS"
-				description="TabooLib提供了一个简单的NMS工具，可以让你用简单的代码完成NMS的操作。"
-				href="/docs/nms"
-			/>
-			<Tool
-				title="配置文件"
-				description="TabooLib提供了一个简单的配置文件工具，可以让你轻松实现配置文件的读写。"
-				href="/docs/config"
-			/>
-			<Tool
-				title="国际化"
-				description="TabooLib提供了一个简单的国际化工具，可以让你的插件支持多语言。"
-				href="/docs/i18n"
-			/>
-			<Tool
-				title="数据库"
-				description="TabooLib提供了一个简单的数据库工具，可以让你轻松实现数据库的读写。"
-				href="/docs/database"
-			/>
-			<Tool
-				title="粒子效果"
-				description="TabooLib提供了一个简单的粒子效果工具，可以让你轻松实现粒子效果的创建与播放。"
-				href="/docs/particle"
-			/>
-			<Tool
-				title="寻路"
-				description="TabooLib提供了一个简单的寻路工具，可以让你轻松实现寻路算法的使用。"
-				href="/docs/pathfinder"
-			/>
+			{#each tools as tool}
+				<Tool {...tool} />
+			{/each}
 		</div>
 	</div>
 </div>

@@ -4,6 +4,7 @@
 	import Github from './Github.svelte';
 	import Mode from './Mode.svelte';
 	import * as Sheet from '$lib/components/ui/sheet';
+	import { reveal } from 'svelte-reveal';
 
 	$: open = false;
 	import { onMount } from 'svelte';
@@ -30,12 +31,12 @@
 			href: '/'
 		},
 		{
-			name: '模块列表',
-			href: '/modules'
-		},
-		{
 			name: '快速开始',
 			href: '/quickstart'
+		},
+		{
+			name: '模块列表',
+			href: '/modules'
 		},
 		{
 			name: '开发文档',
@@ -50,6 +51,7 @@
 
 <header>
 	<div
+		use:reveal
 		class="mx-auto flex h-[4rem] max-w-7xl items-center justify-between gap-3 px-4 sm:px-6 lg:px-8"
 	>
 		<div class="flex items-center gap-1.5 lg:flex-1">
