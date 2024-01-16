@@ -24,15 +24,12 @@ export const load = (async ({ fetch, url }) => {
 	const types: Type[] = await fetch(BASE_URL + '/components').then((res) => res.json());
 
 	const type = url.searchParams.get('type') ?? 'all';
-	const categories: Category[] = await fetch(
-		BASE_URL +
-			'/categories?' +
-			new URLSearchParams({
-				type
-			})
-	).then((res) => res.json());
+	const res = await fetch(BASE_URL + '/components/' + type).then((res) => res.json());
 
-	const list: Content[] = await fetch(BASE_URL + '/components/' + type).then((res) => res.json());
+	const categories: Category[] = res.categories;
+
+	const list: Content[] = res.components;
+
 	return {
 		types,
 		categories,
