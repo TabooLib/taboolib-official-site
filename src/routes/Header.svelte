@@ -35,8 +35,8 @@
 			href: '/quickstart'
 		},
 		{
-			name: '模块列表',
-			href: '/modules'
+			name: '组件市场',
+			href: '/market'
 		},
 		{
 			name: '开发文档',
