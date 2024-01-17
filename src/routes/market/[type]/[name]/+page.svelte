@@ -2,6 +2,7 @@
 	import { Badge } from '$lib/components/ui/badge';
 	import type { PageData } from './$types';
 	import { Button } from '$lib/components/ui/button';
+	import Markdown from '$lib/components/markdown/Markdown.svelte';
 
 	export let data: PageData;
 
@@ -53,9 +54,7 @@
 	<div class="flex flex-col lg:grid lg:grid-cols-10 lg:gap-8">
 		<div class="lg:col-span-8">
 			<div class="prose prose-primary dark:prose-invert mt-8 max-w-none pb-24">
-				<div class="module-readme">
-					{componentDetails.content}
-				</div>
+				<Markdown content={componentDetails.content} />
 			</div>
 		</div>
 		<div class="order-first lg:order-last lg:col-span-2"></div>

@@ -7,7 +7,7 @@
 	$: currentMode = $mode;
 </script>
 
-<Tooltip.Root openDelay={100} closeDelay={50} closeOnPointerDown={false}>
+<Tooltip.Root openDelay={100} closeOnPointerDown={false}>
 	<Tooltip.Trigger>
 		<Button class="h-8 w-8 border-0 px-0 py-0 shadow-none" on:click={toggleMode} variant="outline">
 			<Sun

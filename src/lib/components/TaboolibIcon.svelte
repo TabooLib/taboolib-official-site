@@ -1,17 +1,11 @@
 <script lang="ts">
+	import { draw, fade } from 'svelte/transition';
+
 	let className = '';
 	export { className as class };
 </script>
 
-<svg
-	class={`${className} animate`}
-	viewBox="0 0 6048 6048"
-	version="1.1"
-	xmlns="http://www.w3.org/2000/svg"
-	xmlns:xlink="http://www.w3.org/1999/xlink"
-	xml:space="preserve"
-	style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"
->
+<svg class={`${className} animate`} viewBox="0 0 6048 6048" version="1.1">
 	<g transform="matrix(6.30366,0,0,5.14765,-9227.4,1732.25)">
 		<g transform="matrix(-4.16667,0,0,-4.16667,2472.92,647.29)">
 			<path
