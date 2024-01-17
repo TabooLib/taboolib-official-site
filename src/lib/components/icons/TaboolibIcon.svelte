@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { draw, fade } from 'svelte/transition';
-
 	let className = '';
 	export { className as class };
 </script>

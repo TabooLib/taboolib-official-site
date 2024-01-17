@@ -17,6 +17,13 @@ type Content = {
 	name: string;
 	title: string;
 	description: string;
+	contributors?: string[];
+	links?: {
+		meta?: {
+			[key: string]: string;
+		};
+		custom?: { title: string; href: string }[];
+	};
 };
 
 export const load = (async ({ fetch, url }) => {

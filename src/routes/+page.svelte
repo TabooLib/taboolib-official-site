@@ -5,7 +5,7 @@
 	import kotlin from 'svelte-highlight/languages/kotlin';
 	import nord from 'svelte-highlight/styles/nord';
 	import Tool from './Tool.svelte';
-	import TaboolibIcon from '$lib/components/TaboolibIcon.svelte';
+	import TaboolibIcon from '$lib/components/icons/TaboolibIcon.svelte';
 	import { reveal } from 'svelte-reveal';
 
 	const registerCommandCode = `command("tp") {

@@ -5,6 +5,10 @@
 	import type { PageData } from './$types';
 	import { reveal } from 'svelte-reveal';
 	import { Input } from '$lib/components/ui/input';
+	import ContributorsIcon from '$lib/components/icons/ContributorsIcon.svelte';
+	import Document from '$lib/components/icons/DocumentIcon.svelte';
+	import { GithubLogo } from 'radix-icons-svelte';
+	import Meta from './Meta.svelte';
 
 	export let data: PageData;
 
@@ -216,7 +220,36 @@
 										<div
 											class="-my-1 flex items-center justify-between gap-3 text-gray-600 dark:text-gray-300"
 										>
-											元数据
+											<div>
+												{#if item.links && item.links.meta}
+													{#if item.links.meta.document}
+														<a href={item.links.meta.document} target="_blank">
+															<Meta text="文档">
+																<Document />
+															</Meta>
+														</a>
+													{/if}
+													{#if item.links.meta.github}
+														<a href="https://github.com/{item.links.meta.github}" target="_blank">
+															<Meta text="Github">
+																<GithubLogo class="h-[20px] w-[20px]" />
+															</Meta>
+														</a>
+													{/if}
+												{/if}
+											</div>
+											<Meta text="贡献人数">
+												<div class="text-base">
+													<ContributorsIcon />
+												</div>
+												<div class="ml-2 text-sm font-medium text-gray-900 dark:text-white">
+													{#if item.contributors}
+														{item.contributors.length}
+													{:else}
+														0
+													{/if}
+												</div>
+											</Meta>
 										</div>
 									</div>
 								</a>
