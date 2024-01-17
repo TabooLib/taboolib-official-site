@@ -5,14 +5,14 @@ type Category = {
 	title: string;
 };
 
-export type Type = {
+export type Component = {
 	name: string;
 	title: string;
 	color: string;
 };
 
 type Content = {
-	type: string;
+	component: Component;
 	categories: Category[];
 	name: string;
 	title: string;
@@ -21,18 +21,18 @@ type Content = {
 
 export const load = (async ({ fetch, url }) => {
 	const BASE_URL = import.meta.env.VITE_DATA_URL;
-	const types: Type[] = await fetch(BASE_URL + '/components').then((res) => res.json());
-
-	const type = url.searchParams.get('type') ?? 'all';
-	const res = await fetch(BASE_URL + '/components/' + type).then((res) => res.json());
+	const components: Component[] = await fetch(BASE_URL + '/components').then((res) => res.json());
+	const hots = await fetch(BASE_URL + '/hots').then((res) => res.json());
+	const component = url.searchParams.get('component') ?? 'all';
+	const res = await fetch(BASE_URL + '/components/' + component).then((res) => res.json());
 
 	const categories: Category[] = res.categories;
-
 	const list: Content[] = res.components;
 
 	return {
-		types,
+		components,
 		categories,
-		list
+		list,
+		hots
 	};
 }) satisfies PageServerLoad;

@@ -1,26 +1,55 @@
 <script lang="ts">
-	import SvelteMarkdown from 'svelte-markdown';
-	import heading from './renderers/Heading.svelte';
-	import paragraph from './renderers/Paragraph.svelte';
-	import code from './renderers/Code.svelte';
-	import list from './renderers/List.svelte';
-	import listItem from './renderers/ListItem.svelte';
-	import orderedlistitem from './renderers/Orderedlistitem.svelte';
-	import unorderedlistitem from './renderers/Unorderedlistitem.svelte';
-	import codespan from './renderers/Codespan.svelte';
+	import { onMount, onDestroy } from 'svelte';
+	import { Editor } from '@tiptap/core';
+	import { Markdown as MarkdownExtension } from 'tiptap-markdown';
+	import CharacterCount from '@tiptap/extension-character-count';
+	import Heading from './extensions/heading';
+	import Code from './extensions/code';
+	import Starter from './extensions/starter';
+	import './editor.pcss';
+
+	let element: HTMLDivElement;
+	let editor: Editor;
 
 	export let content: string;
 
-	const renderers = {
-		heading,
-		paragraph,
-		code,
-		list,
-		listItem,
-		orderedlistitem,
-		unorderedlistitem,
-		codespan
-	};
+	const renderers = [Heading, Code];
+	const extensions = [MarkdownExtension, CharacterCount];
+
+	onMount(() => {
+		editor = new Editor({
+			editable: false,
+			element: element,
+			extensions: [Starter, ...renderers, ...extensions],
+			content,
+			onTransaction: () => {
+				// force re-render so `editor.isActive` works as expected
+				editor = editor;
+			}
+		});
+	});
+
+	onDestroy(() => {
+		if (editor) {
+			editor.destroy();
+		}
+	});
 </script>
 
-<SvelteMarkdown {renderers} source={content} />
+<div bind:this={element} />
+{#if editor}
+	<div class="character-count">
+		{editor.storage.characterCount.characters()} 个字符
+		<br />
+		{editor.storage.characterCount.words()} 个单词
+	</div>
+{/if}
+
+<style lang="postcss">
+	.character-count {
+		text-align: right;
+		padding: 0.5rem;
+		font-size: 1rem;
+		color: #aaa;
+	}
+</style>

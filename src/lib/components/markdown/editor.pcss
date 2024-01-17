@@ -1,0 +1,96 @@
+/* Headings */
+.ProseMirror {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply cursor-pointer font-bold tracking-tight text-gray-900 dark:text-white;
+		@apply after:ml-4 after:font-mono after:text-primary after:opacity-0 after:transition-opacity after:duration-150 after:hover:opacity-100 after:hover:content-['#'];
+	}
+
+	h1 {
+		@apply mb-4 mt-8  text-3xl sm:text-4xl;
+	}
+	h2 {
+		@apply mb-4 mt-7 text-2xl sm:text-3xl;
+	}
+	h3 {
+		@apply mb-4 mt-6 text-xl sm:text-2xl;
+	}
+	h4 {
+		@apply mb-4 mt-5 text-lg sm:text-xl;
+	}
+	h5 {
+		@apply mb-4 mt-4 text-base sm:text-lg;
+	}
+	h6 {
+		@apply mb-4 mt-4 text-base sm:text-lg;
+	}
+}
+
+/* Lists */
+.ProseMirror {
+	ol {
+		@apply my-4 list-inside list-decimal pl-4;
+
+		li {
+			@apply my-2 marker:text-[#64748B] dark:marker:text-[#94A8B8];
+			@apply transform-none text-start indent-0 tabular-nums;
+			font-weight: 400;
+			font-size: 16px;
+
+			& > * {
+				display: inline-block;
+			}
+		}
+	}
+	ul {
+		@apply my-4 list-inside list-disc pl-4;
+
+		li {
+			@apply my-2 marker:text-[#CBD5E1] dark:marker:text-[#475569];
+			@apply transform-none text-start indent-0 tabular-nums;
+			font-size: 16px;
+
+			& > * {
+				display: inline-block;
+			}
+		}
+	}
+}
+
+/* Paragraphs */
+.ProseMirror {
+	p {
+		@apply mb-4 text-[#334155] dark:text-[#E2E8F0] sm:text-lg;
+	}
+}
+
+/* Blockquotes */
+.ProseMirror {
+	blockquote {
+		@apply my-4 rounded-sm border-l-4 border-gray-300 pl-4 dark:border-gray-700;
+		@apply text-gray-500 dark:text-gray-400;
+		@apply italic;
+		@apply text-lg;
+	}
+}
+
+/* Code blocks */
+.ProseMirror {
+	pre {
+		@apply bg-[#F7F7F7] font-mono text-[#24292e] dark:bg-[#1E293B] dark:text-[#c9d1d9];
+		@apply mb-4 mt-4 overflow-x-auto rounded-xl p-4;
+	}
+}
+
+/* Code */
+.ProseMirror {
+	.tiptap-code {
+		@apply font-mono text-sm;
+		@apply rounded-md px-2 py-1;
+		@apply bg-[#F7F7F7] dark:bg-[#1E293B];
+	}
+}

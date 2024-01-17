@@ -10,8 +10,8 @@
 
 	$: searchInput = '';
 
-	$: types = data.types;
-	$: currentType = $page.url.searchParams.get('type') || 'all';
+	$: components = data.components;
+	$: currentComponent = $page.url.searchParams.get('component') || 'all';
 
 	$: categories = data.categories;
 	$: currentCategory = $page.url.searchParams.get('category') || 'all';
@@ -37,44 +37,15 @@
 		return categories.find((c) => c === category) !== undefined;
 	}
 
-	function changeType(type: string) {
-		goto(`/market?type=${type}&category=all`);
+	function changeComponent(component: string) {
+		goto(`/market?component=${component}&category=all`);
 	}
 
 	function changeCategory(category: string) {
-		goto(`/market?type=${currentType}&category=${category}`);
+		goto(`/market?component=${currentComponent}&category=${category}`);
 	}
 
-	function getColor(type: string) {
-		return types.find((t) => t.name === type)?.color || 'primary';
-	}
-
-	const hots = [
-		{
-			type: 'module',
-			name: 'ui',
-			title: 'UI模块',
-			description: 'TabooLib提供了一个简单的UI构建工具，可以让你高效快速的构建UI界面。'
-		},
-		{
-			type: 'module',
-			name: 'nms',
-			title: 'NMS模块',
-			description: 'TabooLib提供了一个简单的NMS工具，可以让你用简单的代码完成NMS的操作。'
-		},
-		{
-			type: 'module',
-			name: 'config',
-			title: '配置文件模块',
-			description: 'TabooLib提供了一个简单的配置文件工具，可以让你轻松实现配置文件的读写。'
-		},
-		{
-			type: 'module',
-			name: 'database',
-			title: '数据库模块',
-			description: 'TabooLib提供了一个简单的数据库工具，可以让你轻松实现数据库的读写。'
-		}
-	];
+	const hots = data.hots;
 </script>
 
 <svelte:head>
@@ -109,12 +80,12 @@
 				<div class="lg:pl-10">
 					<div class="grid grid-cols-2 gap-4 sm:grid-cols-2 xl:grid-cols-2">
 						{#each hots as hot}
-							<div use:reveal={{ transition: 'scale' }}>
+							<div class="group relative flex flex-col" use:reveal={{ transition: 'scale' }}>
 								<div
-									class="group relative cursor-pointer divide-y overflow-hidden rounded-xl bg-card shadow ring-1 ring-border transition duration-200 ease-in-out hover:bg-muted hover:ring-2 hover:ring-primary"
+									class="flex-1 cursor-pointer divide-y overflow-hidden rounded-xl bg-card shadow ring-1 ring-border transition duration-200 ease-in-out hover:bg-muted hover:ring-2 hover:ring-primary"
 								>
 									<div class="flex-1 px-4 py-5 sm:p-6">
-										<a href="/market/{hot.type}/{hot.name}">
+										<a href="/market/{hot.component.name}/{hot.name}">
 											<p
 												class="flex items-center gap-1.5 truncate text-base font-semibold text-gray-900 dark:text-white"
 											>
@@ -197,15 +168,15 @@
 			<div class="mt-8 pb-24">
 				<div use:reveal class="mb-8 flex items-center justify-between gap-3">
 					<div class="relative hidden lg:block">
-						{#each types as type}
+						{#each components as component}
 							<button
 								class="rounded-md pb-2 pr-4 font-medium text-gray-900 transition-colors duration-200 ease-in-out hover:text-primary dark:text-white dark:hover:text-primary"
-								class:selected={type.name === currentType}
+								class:selected={component.name === currentComponent}
 								on:click={() => {
-									changeType(type.name);
+									changeComponent(component.name);
 								}}
 							>
-								{type.title}
+								{component.title}
 							</button>
 						{/each}
 					</div>
@@ -219,13 +190,16 @@
 							<div
 								class="relative flex flex-1 flex-col overflow-hidden rounded-xl bg-card shadow ring-1 ring-border transition duration-200 hover:ring-2 hover:ring-primary"
 							>
-								<a class="relative flex flex-1 flex-col" href="/market/{item.type}/{item.name}">
+								<a
+									class="relative flex flex-1 flex-col"
+									href="/market/{item.component.name}/{item.name}"
+								>
 									<div class="flex-1 px-4 py-5 sm:p-6">
 										<div
 											class="mb-6 flex select-none text-4xl font-bold"
-											style="color: {getColor(item.type)};"
+											style="color: {item.component.color};"
 										>
-											{item.type.charAt(0).toUpperCase()}
+											{item.component.name.charAt(0).toUpperCase()}
 										</div>
 										<p
 											class="flex items-center gap-1.5 truncate text-base font-semibold text-gray-900 dark:text-white"

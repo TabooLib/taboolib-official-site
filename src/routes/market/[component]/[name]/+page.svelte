@@ -7,17 +7,13 @@
 	export let data: PageData;
 
 	const componentDetails = data.componentDetails;
-	const types = data.types;
-
-	function getColor(type: string) {
-		return types.find((t) => t.name === type)?.color || 'primary';
-	}
 </script>
 
 <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 	<div class="relative border-b border-gray-200 py-8 dark:border-gray-800">
 		<div class="mb-4 flex items-center gap-1.5 text-sm font-semibold text-primary">
-			{componentDetails.type.charAt(0).toUpperCase() + componentDetails.type.slice(1)}
+			{componentDetails.component.name.charAt(0).toUpperCase() +
+				componentDetails.component.name.slice(1)}
 		</div>
 		<div class="flex flex-col md:flex-row md:items-center md:justify-between">
 			<div class="flex flex-col items-start gap-6 lg:flex-row">
@@ -27,9 +23,9 @@
 							<div class="flex items-center gap-4">
 								<span
 									class="h-full select-none rounded-md bg-muted px-3 font-bold"
-									style="color: {getColor(componentDetails.type)};"
+									style="color: {componentDetails.component.color};"
 								>
-									{componentDetails.type.charAt(0).toUpperCase()}
+									{componentDetails.component.name.charAt(0).toUpperCase()}
 								</span>
 								<div>{componentDetails.title}</div>
 							</div>
