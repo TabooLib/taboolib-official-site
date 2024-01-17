@@ -6,15 +6,17 @@ const heading = Heading.extend({
 			id: {
 				default: null,
 				parseHTML: (element) => {
+					const ramdomId = Math.random().toString(36).substring(2, 15);
 					return {
 						level: parseInt(element.tagName.slice(1), 10),
-						content: element.innerHTML
+						content: element.innerHTML,
+						id: ramdomId
 					};
 				},
 				renderHTML: (attributes) => {
 					return {
 						level: attributes.level,
-						id: attributes.id.content
+						id: attributes.id.id
 					};
 				}
 			}

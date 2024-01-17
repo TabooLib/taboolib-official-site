@@ -7,6 +7,7 @@
 	import Code from './extensions/code';
 	import Starter from './extensions/starter';
 	import './editor.pcss';
+	import { anchors } from '../../../store/anchors';
 
 	let element: HTMLDivElement;
 	let editor: Editor;
@@ -27,6 +28,18 @@
 				editor = editor;
 			}
 		});
+
+		const json = editor.state.doc.toJSON();
+		const temp = [];
+		for (let i = 0; i < json.content.length; i++) {
+			const node = json.content[i];
+			if (node.type === 'heading') {
+				console.log(node.attrs);
+
+				temp.push(node.attrs.id);
+			}
+		}
+		anchors.set(temp);
 	});
 
 	onDestroy(() => {

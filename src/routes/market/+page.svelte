@@ -141,7 +141,7 @@
 						</div>
 					</nav>
 					<div class="align-center my-6 flex w-full flex-row items-center text-center">
-						<div class="dark:border-gray-830 flex w-full border-t border-dashed border-gray-300" />
+						<div class="flex w-full border-t border-dashed border-gray-200 dark:border-gray-800" />
 					</div>
 					<div class="space-y-3">
 						<div class="space-y-3 lg:space-y-1.5">
