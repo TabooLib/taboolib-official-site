@@ -8,6 +8,8 @@
 
 	export let data: PageData;
 
+	$: searchInput = '';
+
 	$: types = data.types;
 	$: currentType = $page.url.searchParams.get('type') || 'all';
 
@@ -19,6 +21,14 @@
 	$: content = list.filter((item) => {
 		if (currentCategory !== 'all' && !containsCategory(item.categories, currentCategory)) {
 			return false;
+		}
+		if (searchInput !== '') {
+			if (
+				!item.title.toLowerCase().includes(searchInput.toLowerCase()) &&
+				!item.description.toLowerCase().includes(searchInput.toLowerCase())
+			) {
+				return false;
+			}
 		}
 		return true;
 	});
@@ -200,8 +210,7 @@
 						{/each}
 					</div>
 					<div class="inline-flex w-64 gap-2 -space-x-px rounded-md shadow-sm">
-						<Input />
-						<Button type="submit">搜索</Button>
+						<Input placeholder="输入你的关键词" bind:value={searchInput} />
 					</div>
 				</div>
 				<div class="grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-3">

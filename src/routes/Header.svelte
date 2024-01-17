@@ -8,7 +8,6 @@
 
 	$: open = false;
 	import { onMount } from 'svelte';
-	import { draw } from 'svelte/transition';
 
 	onMount(() => {
 		function handleResize() {

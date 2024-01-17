@@ -40,7 +40,7 @@
 					</p>
 					<div class="mt-4 flex flex-row items-center gap-3">
 						{#each componentDetails.categories as category}
-							<Badge>{category}</Badge>
+							<Badge>{category.title}</Badge>
 						{/each}
 					</div>
 				</div>
