@@ -6,7 +6,7 @@
 	import { reveal } from 'svelte-reveal';
 	import { Input } from '$lib/components/ui/input';
 	import ContributorsIcon from '$lib/components/icons/ContributorsIcon.svelte';
-	import Document from '$lib/components/icons/DocumentIcon.svelte';
+	import DocumentIcon from '$lib/components/icons/DocumentIcon.svelte';
 	import { GithubLogo } from 'radix-icons-svelte';
 	import Meta from './Meta.svelte';
 
@@ -225,7 +225,7 @@
 													{#if item.links.meta.document}
 														<a href={item.links.meta.document} target="_blank">
 															<Meta text="文档">
-																<Document />
+																<DocumentIcon />
 															</Meta>
 														</a>
 													{/if}

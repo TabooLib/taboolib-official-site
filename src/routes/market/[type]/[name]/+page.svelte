@@ -71,11 +71,11 @@
 			<a href="/market" class="flex items-center gap-1.5">
 				<div class="opacity-80">组件市场</div>
 			</a>
-			<div class="opacity-80 text-gray-500 dark:text-gray-400"><AngleRight class="h-4 w-4" /></div>
+			<div class="text-gray-500 opacity-80 dark:text-gray-400"><AngleRight /></div>
 			<a href={`/market?type=${componentDetails.type.name}`} class="flex items-center gap-1.5">
 				<div class="opacity-80">{componentDetails.type.title}</div>
 			</a>
-			<div class="opacity-80 text-gray-500 dark:text-gray-400"><AngleRight class="h-4 w-4" /></div>
+			<div class="text-gray-500 opacity-80 dark:text-gray-400"><AngleRight /></div>
 			<div class="opacity-80">{componentDetails.title}</div>
 		</div>
 		<div class="flex flex-col md:flex-row md:items-center md:justify-between">
@@ -107,7 +107,11 @@
 			{#key exists}
 				<div use:reveal={{ transition: 'slide' }} class="mb-2 mt-8 md:my-0">
 					{#if exists || componentDetails.required === true}
-						<Button disabled={ componentDetails.required === true } on:click={() => removeComponent(componentDetails)} variant="destructive">
+						<Button
+							disabled={componentDetails.required === true}
+							on:click={() => removeComponent(componentDetails)}
+							variant="destructive"
+						>
 							从我的项目中移除
 						</Button>
 					{:else}

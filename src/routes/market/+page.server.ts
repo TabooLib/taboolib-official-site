@@ -5,14 +5,14 @@ type Category = {
 	title: string;
 };
 
-export type Component = {
+export type Type = {
 	name: string;
 	title: string;
 	color: string;
 };
 
 type Content = {
-	component: Component;
+	type: Type;
 	categories: Category[];
 	name: string;
 	title: string;
@@ -28,7 +28,7 @@ type Content = {
 
 export const load = (async ({ fetch, url }) => {
 	const BASE_URL = import.meta.env.VITE_DATA_URL;
-	const types: Component[] = await fetch(BASE_URL + '/components').then((res) => res.json());
+	const types: Type[] = await fetch(BASE_URL + '/components').then((res) => res.json());
 	const hots = await fetch(BASE_URL + '/hots').then((res) => res.json());
 	const type = url.searchParams.get('type') ?? 'all';
 	const res = await fetch(BASE_URL + '/components/' + type).then((res) => res.json());

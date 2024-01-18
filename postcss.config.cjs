@@ -3,8 +3,6 @@ const autoprefixer = require('autoprefixer');
 const nesting = require('tailwindcss/nesting');
 const postcssImport = require('postcss-import');
 
-// use the tailwindcss/nestin plugin
-
 const config = {
 	plugins: [
 		postcssImport(),
