@@ -34,8 +34,6 @@
 		for (let i = 0; i < json.content.length; i++) {
 			const node = json.content[i];
 			if (node.type === 'heading') {
-				console.log(node.attrs);
-
 				temp.push(node.attrs.id);
 			}
 		}

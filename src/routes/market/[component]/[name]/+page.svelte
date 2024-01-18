@@ -17,6 +17,8 @@
 
 	const componentDetails = data.componentDetails;
 
+	let contributors = data.contributors;
+
 	let currentAnchors: Anchor[];
 	let activeAnchor: Element | null = null;
 	let handleScroll = () => {};
@@ -135,16 +137,16 @@
 							</li>
 						{/each}
 					</ul>
-					<div class="!mt-6 hidden space-y-6 lg:block">
-						<div class="align-center flex w-full flex-row items-center text-center">
-							<div
-								class="flex w-full border-t border-dashed border-gray-200 dark:border-gray-800"
-							/>
-						</div>
-						<div class="space-y-3">
-							<p class="flex items-center gap-1.5 text-sm/6 font-semibold">相关链接</p>
-							<div class="space-y-3 lg:space-y-1.5">
-								{#if componentDetails.links}
+					{#if componentDetails.links}
+						<div class="!mt-6 hidden space-y-6 lg:block">
+							<div class="align-center flex w-full flex-row items-center text-center">
+								<div
+									class="flex w-full border-t border-dashed border-gray-200 dark:border-gray-800"
+								/>
+							</div>
+							<div class="space-y-3">
+								<p class="flex items-center gap-1.5 text-sm/6 font-semibold">相关链接</p>
+								<div class="space-y-3 lg:space-y-1.5">
 									{#if componentDetails.links.meta}
 										{#if componentDetails.links.meta.document}
 											<Link href={componentDetails.links.meta.document}>
@@ -153,7 +155,7 @@
 											</Link>
 										{/if}
 										{#if componentDetails.links.meta.document}
-											<Link href={componentDetails.links.meta.github}>
+											<Link href="https://github.com/{componentDetails.links.meta.github}">
 												<GithubLogo class="h-[20px] w-[20px]" />
 												<span class="relative text-sm/6 font-medium">
 													{componentDetails.links.meta.github}
@@ -161,10 +163,47 @@
 											</Link>
 										{/if}
 									{/if}
-								{/if}
+									{#if componentDetails.links.custom}
+										{#each componentDetails.links.custom as link}
+											<Link href={link.href}>
+												<span class="relative cursor-pointer text-sm/6 font-medium"
+													>{link.title}</span
+												>
+											</Link>
+										{/each}
+									{/if}
+								</div>
 							</div>
 						</div>
-					</div>
+					{/if}
+					{#if componentDetails.contributors}
+						<div class="!mt-6 hidden space-y-6 lg:block">
+							<div class="align-center flex w-full flex-row items-center text-center">
+								<div
+									class="flex w-full border-t border-dashed border-gray-200 dark:border-gray-800"
+								/>
+							</div>
+							<div class="space-y-3">
+								<p class="flex items-center gap-1.5 text-sm/6 font-semibold">贡献者</p>
+								<div class="space-y-3 lg:space-y-1.5">
+									{#each contributors as contributor}
+										<Link href={contributor.items[0].html_url}>
+											<div class="flex items-center gap-1.5">
+												<img
+													src={contributor.items[0].avatar_url}
+													alt={contributor.items[0].login}
+													class="h-6 w-6 rounded-full"
+												/>
+												<span class="relative text-sm/6 font-medium"
+													>{contributor.items[0].login}</span
+												>
+											</div>
+										</Link>
+									{/each}
+								</div>
+							</div>
+						</div>
+					{/if}
 				</div>
 			</nav>
 		</div>

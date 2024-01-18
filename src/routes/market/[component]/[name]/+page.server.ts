@@ -1,3 +1,4 @@
+import { fetchWithGithubAuth } from '$lib/utils';
 import type { PageServerLoad } from './$types';
 
 export const load = (async ({ params }) => {
@@ -9,7 +10,15 @@ export const load = (async ({ params }) => {
 		(res) => res.json()
 	);
 
+	const contributors = await Promise.all(
+		componentDetails.contributors.map((element: string) =>
+			fetchWithGithubAuth('https://api.github.com/search/users?q=' + element).then((res) =>
+				res.json()
+			)
+		)
+	);
 	return {
-		componentDetails
+		componentDetails,
+		contributors
 	};
 }) satisfies PageServerLoad;
