@@ -71,11 +71,11 @@
 			<a href="/market" class="flex items-center gap-1.5">
 				<div class="opacity-80">组件市场</div>
 			</a>
-			<AngleRight class="h-4 w-4" />
-			<a href={`/market?component=${componentDetails.component.name}`} class="flex items-center gap-1.5">
+			<div class="opacity-80 text-gray-500 dark:text-gray-400"><AngleRight class="h-4 w-4" /></div>
+			<a href={`/market?type=${componentDetails.component.name}`} class="flex items-center gap-1.5">
 				<div class="opacity-80">{componentDetails.component.title}</div>
 			</a>
-			<AngleRight class="h-4 w-4" />
+			<div class="opacity-80 text-gray-500 dark:text-gray-400"><AngleRight class="h-4 w-4" /></div>
 			<div class="opacity-80">{componentDetails.title}</div>
 		</div>
 		<div class="flex flex-col md:flex-row md:items-center md:justify-between">
