@@ -53,7 +53,7 @@
 </script>
 
 <svelte:head>
-	<title>组件市场 - TabooLib</title>
+	<title>组件市场 | TabooLib</title>
 	<meta name="description" content="TabooLib组件市场" />
 </svelte:head>
 

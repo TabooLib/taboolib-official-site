@@ -80,7 +80,7 @@ fun onJoin(e: PlayerJoinEvent) {
 </script>
 
 <svelte:head>
-	<title>TabooLib Official Site</title>
+	<title>首页 | TabooLib</title>
 	<meta
 		name="description"
 		content="TabooLib 是一个现代化的 Minecraft 开发框架，旨在提供快速、安全的软件和丰富的插件 API。"

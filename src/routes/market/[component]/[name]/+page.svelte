@@ -54,6 +54,11 @@
 	});
 </script>
 
+<svelte:head>
+	<title>{componentDetails.title} - {componentDetails.component.title} | TabooLib</title>
+	<meta name="description" content={componentDetails.description} />
+</svelte:head>
+
 <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 	<div
 		use:reveal={{ transition: 'slide' }}
@@ -130,6 +135,8 @@
 									href={`#${anchor.id}`}
 									class:text-primary={activeAnchor &&
 										activeAnchor.getAttribute('id') === `${anchor.id}`}
+									class:dark:text-primary={activeAnchor &&
+										activeAnchor.getAttribute('id') === `${anchor.id}`}
 									class="block truncate text-sm/6 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
 								>
 									<span class="relative">{anchor.content}</span>
@@ -176,7 +183,7 @@
 							</div>
 						</div>
 					{/if}
-					{#if componentDetails.contributors}
+					{#if componentDetails.contributors && componentDetails.contributors.length > 0}
 						<div class="!mt-6 hidden space-y-6 lg:block">
 							<div class="align-center flex w-full flex-row items-center text-center">
 								<div
