@@ -10,6 +10,10 @@ export const load = (async ({ params }) => {
 		(res) => res.json()
 	);
 
+	if (componentDetails.contributors === undefined) {
+		componentDetails.contributors = [];
+	}
+
 	const contributors = await Promise.all(
 		componentDetails.contributors.map((element: string) =>
 			fetchWithGithubAuth('https://api.github.com/search/users?q=' + element).then((res) =>
