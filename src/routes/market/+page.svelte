@@ -89,7 +89,7 @@
 									class="flex-1 cursor-pointer divide-y overflow-hidden rounded-xl bg-card shadow ring-1 ring-border transition duration-200 ease-in-out hover:bg-muted hover:ring-2 hover:ring-primary"
 								>
 									<div class="flex-1 px-4 py-5 sm:p-6">
-										<a href="/market/{hot.component.name}/{hot.name}">
+										<a href="/market/{hot.type.name}/{hot.name}">
 											<p
 												class="flex items-center gap-1.5 truncate text-base font-semibold text-gray-900 dark:text-white"
 											>
@@ -196,14 +196,14 @@
 							>
 								<a
 									class="relative flex flex-1 flex-col"
-									href="/market/{item.component.name}/{item.name}"
+									href="/market/{item.type.name}/{item.name}"
 								>
 									<div class="flex-1 px-4 py-5 sm:p-6">
 										<div
 											class="mb-6 flex select-none text-4xl font-bold"
-											style="color: {item.component.color};"
+											style="color: {item.type.color};"
 										>
-											{item.component.name.charAt(0).toUpperCase()}
+											{item.type.name.charAt(0).toUpperCase()}
 										</div>
 										<p
 											class="flex items-center gap-1.5 truncate text-base font-semibold text-gray-900 dark:text-white"

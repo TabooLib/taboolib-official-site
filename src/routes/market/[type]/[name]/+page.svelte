@@ -58,7 +58,7 @@
 </script>
 
 <svelte:head>
-	<title>{componentDetails.title} - {componentDetails.component.title} | TabooLib</title>
+	<title>{componentDetails.title} - {componentDetails.type.title} | TabooLib</title>
 	<meta name="description" content={componentDetails.description} />
 </svelte:head>
 
@@ -72,8 +72,8 @@
 				<div class="opacity-80">组件市场</div>
 			</a>
 			<div class="opacity-80 text-gray-500 dark:text-gray-400"><AngleRight class="h-4 w-4" /></div>
-			<a href={`/market?type=${componentDetails.component.name}`} class="flex items-center gap-1.5">
-				<div class="opacity-80">{componentDetails.component.title}</div>
+			<a href={`/market?type=${componentDetails.type.name}`} class="flex items-center gap-1.5">
+				<div class="opacity-80">{componentDetails.type.title}</div>
 			</a>
 			<div class="opacity-80 text-gray-500 dark:text-gray-400"><AngleRight class="h-4 w-4" /></div>
 			<div class="opacity-80">{componentDetails.title}</div>
@@ -86,9 +86,9 @@
 							<div class="flex items-center gap-4">
 								<span
 									class="h-full select-none rounded-md bg-muted px-3 font-bold"
-									style="color: {componentDetails.component.color};"
+									style="color: {componentDetails.type.color};"
 								>
-									{componentDetails.component.name.charAt(0).toUpperCase()}
+									{componentDetails.type.name.charAt(0).toUpperCase()}
 								</span>
 								<div>{componentDetails.title}</div>
 							</div>
