@@ -14,8 +14,8 @@
 
 	$: searchInput = '';
 
-	$: components = data.components;
-	$: currentComponent = $page.url.searchParams.get('component') || 'all';
+	$: types = data.types;
+	$: currentType = $page.url.searchParams.get('type') || 'all';
 
 	$: categories = data.categories;
 	$: currentCategory = $page.url.searchParams.get('category') || 'all';
@@ -41,12 +41,12 @@
 		return categories.find((c) => c === category) !== undefined;
 	}
 
-	function changeComponent(component: string) {
-		goto(`/market?component=${component}&category=all`);
+	function changeType(type: string) {
+		goto(`/market?type=${type}&category=all`);
 	}
 
 	function changeCategory(category: string) {
-		goto(`/market?component=${currentComponent}&category=${category}`);
+		goto(`/market?type=${currentType}&category=${category}`);
 	}
 
 	const hots = data.hots;
@@ -172,15 +172,15 @@
 			<div class="mt-8 pb-24">
 				<div use:reveal class="mb-8 flex items-center justify-between gap-3">
 					<div class="relative hidden lg:block">
-						{#each components as component}
+						{#each types as type}
 							<button
 								class="rounded-md pb-2 pr-4 font-medium text-gray-900 transition-colors duration-200 ease-in-out hover:text-primary dark:text-white dark:hover:text-primary"
-								class:selected={component.name === currentComponent}
+								class:selected={type.name === currentType}
 								on:click={() => {
-									changeComponent(component.name);
+									changeType(type.name);
 								}}
 							>
-								{component.title}
+								{type.title}
 							</button>
 						{/each}
 					</div>

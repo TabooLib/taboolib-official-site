@@ -28,16 +28,16 @@ type Content = {
 
 export const load = (async ({ fetch, url }) => {
 	const BASE_URL = import.meta.env.VITE_DATA_URL;
-	const components: Component[] = await fetch(BASE_URL + '/components').then((res) => res.json());
+	const types: Component[] = await fetch(BASE_URL + '/components').then((res) => res.json());
 	const hots = await fetch(BASE_URL + '/hots').then((res) => res.json());
-	const component = url.searchParams.get('component') ?? 'all';
-	const res = await fetch(BASE_URL + '/components/' + component).then((res) => res.json());
+	const type = url.searchParams.get('type') ?? 'all';
+	const res = await fetch(BASE_URL + '/components/' + type).then((res) => res.json());
 
 	const categories: Category[] = res.categories;
 	const list: Content[] = res.components;
 
 	return {
-		components,
+		types,
 		categories,
 		list,
 		hots

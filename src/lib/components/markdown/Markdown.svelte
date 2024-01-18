@@ -7,7 +7,7 @@
 	import Code from './extensions/code';
 	import Starter from './extensions/starter';
 	import './editor.pcss';
-	import { anchors } from '../../../store/anchors';
+	import { anchors } from '../../../stores/anchors';
 
 	let element: HTMLDivElement;
 	let editor: Editor;

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { anchors, type Anchor } from '../../../../store/anchors';
+	import { anchors, type Anchor } from '../../../../stores/anchors';
 	import { Badge } from '$lib/components/ui/badge';
 	import { reveal } from 'svelte-reveal';
 	import type { PageData } from './$types';
@@ -10,6 +10,7 @@
 	import Link from './Link.svelte';
 	import DocumentIcon from '$lib/components/icons/DocumentIcon.svelte';
 	import { onDestroy, onMount } from 'svelte';
+	import { addComponent, removeComponent, quickstart } from '../../../../stores/quickstart';
 
 	export let data: PageData;
 
@@ -22,6 +23,8 @@
 	let currentAnchors: Anchor[];
 	let activeAnchor: Element | null = null;
 	let handleScroll = () => {};
+
+	$: exists = $quickstart.components.some((component) => component.name === componentDetails.name);
 
 	onMount(() => {
 		handleScroll = () => {
@@ -65,8 +68,15 @@
 		class="relative border-b border-gray-200 py-8 dark:border-gray-800"
 	>
 		<div class="mb-4 flex items-center gap-1.5 text-sm font-semibold text-primary">
-			{componentDetails.component.name.charAt(0).toUpperCase() +
-				componentDetails.component.name.slice(1)}
+			<a href="/market" class="flex items-center gap-1.5">
+				<div class="opacity-80">组件市场</div>
+			</a>
+			<AngleRight class="h-4 w-4" />
+			<a href={`/market?component=${componentDetails.component.name}`} class="flex items-center gap-1.5">
+				<div class="opacity-80">{componentDetails.component.title}</div>
+			</a>
+			<AngleRight class="h-4 w-4" />
+			<div class="opacity-80">{componentDetails.title}</div>
 		</div>
 		<div class="flex flex-col md:flex-row md:items-center md:justify-between">
 			<div class="flex flex-col items-start gap-6 lg:flex-row">
@@ -94,10 +104,17 @@
 					</div>
 				</div>
 			</div>
-			<div class="mb-2 mt-8 md:my-0">
-				<Button>添加到我的项目</Button>
-				<!-- <Button variant="destructive">从我的项目中移除</Button> -->
-			</div>
+			{#key exists}
+				<div use:reveal={{ transition: 'slide' }} class="mb-2 mt-8 md:my-0">
+					{#if exists || componentDetails.required === true}
+						<Button disabled={ componentDetails.required === true } on:click={() => removeComponent(componentDetails)} variant="destructive">
+							从我的项目中移除
+						</Button>
+					{:else}
+						<Button on:click={() => addComponent(componentDetails)}>添加到我的项目</Button>
+					{/if}
+				</div>
+			{/key}
 		</div>
 	</div>
 	<div class="flex flex-col lg:grid lg:grid-cols-10 lg:gap-8">
@@ -158,7 +175,7 @@
 										{#if componentDetails.links.meta.document}
 											<Link href={componentDetails.links.meta.document}>
 												<DocumentIcon />
-												<span class="relative text-sm/6 font-medium"> 查阅文档 </span>
+												<span class="relative text-sm/6 font-medium">查阅文档</span>
 											</Link>
 										{/if}
 										{#if componentDetails.links.meta.document}
