@@ -13,6 +13,7 @@
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
 	import * as Tooltip from '$lib/components/ui/tooltip';
+	import { toast } from 'svelte-sonner';
 
 	export let data: PageData;
 
@@ -50,6 +51,32 @@
 		return true;
 	});
 
+	async function getSDK() {
+		if (project.name === '') {
+			toast.error('请输入项目名称');
+			return;
+		}
+		if (project.package === '') {
+			toast.error('请输入包名');
+			return;
+		}
+		const body = {
+			project: project,
+			components: selectedComponents
+		};
+
+		const res = await fetch('/api/quickstart', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(body)
+		});
+		const blob = await res.blob();
+		const url = window.URL.createObjectURL(blob);
+		window.open(url);
+	}
+
 	function containsCategory(categories: any[], category: string) {
 		return categories.find((c) => c === category) !== undefined;
 	}
@@ -73,7 +100,7 @@
 		<div class="grid gap-8 sm:gap-y-16 lg:grid-cols-2 lg:items-center">
 			<div use:reveal>
 				<h2
-					class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl lg:text-5xl"
+					class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl dark:text-white"
 				>
 					快速开始
 				</h2>
@@ -81,7 +108,7 @@
 					输入基本信息并选择一些模块来快速生成你的 TabooLib 项目。
 				</p>
 				<div class="mt-8 flex flex-wrap gap-x-3 gap-y-1.5">
-					<Button>生成项目</Button>
+					<Button on:click={() => getSDK()}>生成项目</Button>
 					<Button disabled class="border-primary text-primary hover:text-primary" variant="outline">
 						多模块项目 (敬请期待)
 					</Button>
@@ -95,7 +122,7 @@
 							<span class="text-red-500">*</span>
 						</Label>
 						<Input type="email" id="name" placeholder="ExampleProject" bind:value={project.name} />
-						<p class="text-sm text-muted-foreground">
+						<p class="text-muted-foreground text-sm">
 							项目名称将作为项目的文件夹名称，不可包含空格和特殊字符。
 						</p>
 					</div>
@@ -110,7 +137,7 @@
 							placeholder="com.example.project"
 							bind:value={project.package}
 						/>
-						<p class="text-sm text-muted-foreground">
+						<p class="text-muted-foreground text-sm">
 							包名将作为项目的包名，不可包含空格和特殊字符。包名不要与现有的项目重复，否则将会导致
 							TabooLib 无法加载。
 						</p>
@@ -137,7 +164,7 @@
 												class="mr-2 h-full w-0.5 bg-gray-200 dark:bg-gray-300"
 											></div>
 											<button
-												class="my-2 h-full flex-1 pl-4 text-left text-sm font-semibold text-gray-400 transition duration-200 ease-in-out hover:text-primary dark:text-gray-300 dark:hover:text-primary"
+												class="hover:text-primary dark:hover:text-primary my-2 h-full flex-1 pl-4 text-left text-sm font-semibold text-gray-400 transition duration-200 ease-in-out dark:text-gray-300"
 												class:selected={category.name === currentCategory}
 												on:click={() => {
 													changeCategory(category.name);
@@ -170,7 +197,7 @@
 					<div class="relative hidden lg:block">
 						{#each types as type}
 							<button
-								class="rounded-md pb-2 pr-4 font-medium text-gray-900 transition-colors duration-200 ease-in-out hover:text-primary dark:text-white dark:hover:text-primary"
+								class="hover:text-primary dark:hover:text-primary rounded-md pb-2 pr-4 font-medium text-gray-900 transition-colors duration-200 ease-in-out dark:text-white"
 								class:selected={type.name === currentType}
 								on:click={() => {
 									changeType(type.name);
@@ -188,7 +215,7 @@
 					{#each components as component}
 						<div class="group relative flex flex-col" use:reveal>
 							<div
-								class="relative flex flex-1 flex-col overflow-hidden rounded-xl bg-card shadow ring-1 ring-border transition duration-200 hover:ring-2 hover:ring-primary"
+								class="bg-card ring-border hover:ring-primary relative flex flex-1 flex-col overflow-hidden rounded-xl shadow ring-1 transition duration-200 hover:ring-2"
 							>
 								<div class="absolute right-4 top-5 z-10">
 									<Tooltip.Root openDelay={100} closeDelay={50} closeOnPointerDown={false}>
@@ -196,7 +223,7 @@
 											><button
 												on:click={() => removeComponent(component)}
 												disabled={requiredComponents.includes(component)}
-												class="flex h-8 w-8 items-center justify-center rounded-lg bg-destructive text-white opacity-0 transition duration-200 disabled:bg-black group-hover:opacity-30 group-hover:hover:opacity-100"
+												class="bg-destructive flex h-8 w-8 items-center justify-center rounded-lg text-white opacity-0 transition duration-200 disabled:bg-black group-hover:opacity-30 group-hover:hover:opacity-100"
 											>
 												<DeleteIcon />
 											</button>
@@ -234,7 +261,7 @@
 											</span>
 										</p>
 									</div>
-									<div class="bg-gray-100/50 px-4 py-4 dark:bg-gray-800/50 sm:px-6">
+									<div class="bg-gray-100/50 px-4 py-4 sm:px-6 dark:bg-gray-800/50">
 										<div
 											class="-my-1 flex items-center justify-between gap-3 text-gray-600 dark:text-gray-300"
 										>

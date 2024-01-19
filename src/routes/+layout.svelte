@@ -7,7 +7,7 @@
 	import { Button } from '$lib/components/ui/button';
 	import { reveal } from 'svelte-reveal';
 	import { afterUpdate } from 'svelte';
-
+	import { Toaster } from '$lib/components/ui/sonner';
 	let show = false;
 
 	afterUpdate(() => {
@@ -63,6 +63,7 @@
 
 {#if show}
 	<ModeWatcher />
+	<Toaster position="top-center" />
 	<div class="app">
 		<Header {stars}></Header>
 
