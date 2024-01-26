@@ -27,25 +27,17 @@
 					href: 'https://github.com/TabooLib/adyeshach'
 				},
 				{
-					title: 'Chemdah',
-					href: 'https://github.com/TabooLib/chemdah'
-				},
-				{
 					title: 'Zaphkiel',
 					href: 'https://github.com/TabooLib/zaphkiel'
 				}
 			]
 		},
 		{
-			title: '社区',
+			title: 'SDK',
 			items: [
 				{
-					title: 'Github',
-					href: 'https://github.com/TabooLib/taboolib'
-				},
-				{
-					title: 'MCBBS Group',
-					href: 'https://www.mcbbs.net/group-2119-1.html'
+					title: 'TabooLib SDK',
+					href: 'https://github.com/TabooLib/taboolib-sdk'
 				}
 			]
 		},
@@ -53,8 +45,8 @@
 			title: '友情链接',
 			items: [
 				{
-					title: 'MCBBS',
-					href: 'https://www.mcbbs.net'
+					title: 'Leosouthey',
+					href: 'https://github.com/Leosouthey'
 				}
 			]
 		}
@@ -120,7 +112,7 @@
 						class="mt-3 flex items-center justify-center gap-x-1.5 lg:order-1 lg:mt-0 lg:flex-1 lg:justify-start"
 					>
 						<p class="text-sm text-gray-500 dark:text-gray-400">
-							Copyright © 2024 TabooProject Designed by
+							Copyright © 2024 <B>TABOO-PROJECT</B> Web Site Designed by
 							<a
 								class="hover:underline"
 								href="https://github.com/Leosouthey"

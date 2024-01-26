@@ -83,7 +83,7 @@ fun onJoin(e: PlayerJoinEvent) {
 	<title>首页 | TabooLib</title>
 	<meta
 		name="description"
-		content="TabooLib 是一个现代化的 Minecraft 开发框架，旨在提供快速、安全的软件和丰富的插件 API。"
+		content="现代化的 Minecraft 跨平台服务端插件开发框架。"
 	/>
 	{@html nord}
 </svelte:head>
@@ -102,23 +102,23 @@ fun onJoin(e: PlayerJoinEvent) {
 					href="https://github.com/TabooLib/taboolib"
 					target="_blank"
 				>
-					TabooLib v6 已发布
+					TabooLib v6.1 已发布
 					<ArrowRight class="ml-2" />
 				</Button>
 			</div>
 			<h1
 				class="pixel-12 text-5xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-7xl"
 			>
-				一个现代化的
+				现代化
 				<br />
-				<span class="block text-primary lg:inline-block">Minecraft开发框架</span>
+				Minecraft
+				<br />
+				<span class="block text-primary lg:inline-block">跨平台插件开发框架</span>
 			</h1>
 			<p
 				class="pixel-12 mt-6 text-lg tracking-tight text-gray-600 dark:text-gray-300 md:px-24 lg:px-48"
 			>
-				TabooLib是一个基于Kotlin的跨平台框架，旨在提供快速、安全的软件和丰富的插件API。
-				<br />
-				作为Minecraft中最广泛使用、性能最佳、稳定性最高的软件之一，TabooLib提供快速更新和有益的支持，旨在改善Minecraft的生态系统。
+				基于 Kotlin，为 Minecraft (Java 版) 提供一个跨平台的插件开发框架，旨在替代频繁的操作，以及解决一些令人头疼的问题。
 			</p>
 			<div class="mt-10 flex flex-wrap justify-center gap-x-6 gap-y-3">
 				<Button href="/quickstart">快速开始</Button>
@@ -146,18 +146,18 @@ fun onJoin(e: PlayerJoinEvent) {
 				<span class="block text-primary">快速注册命令</span>
 			</h2>
 			<p class="mt-6 text-lg/8 text-gray-600 dark:text-gray-300">
-				TabooLib提供了一个简单的命令注册dsl，可以让你在几行代码内完成命令的注册。
+				TabooLib 提供了一个极速的命令工具，几行内完成命令注册。
 			</p>
-			<div class="mt-8 flex flex-wrap gap-x-3 gap-y-1.5">
-				<Button href="/examples/command">注册实例</Button>
-				<Button
-					class="border-primary text-primary hover:text-primary"
-					variant="outline"
-					href="https://docs.tabooproject.org/"
-				>
-					命令文档
-				</Button>
-			</div>
+			<!--<div class="mt-8 flex flex-wrap gap-x-3 gap-y-1.5">-->
+			<!--	<Button href="/examples/command">注册实例</Button>-->
+			<!--	<Button-->
+			<!--		class="border-primary text-primary hover:text-primary"-->
+			<!--		variant="outline"-->
+			<!--		href="https://docs.tabooproject.org/"-->
+			<!--	>-->
+			<!--		命令文档-->
+			<!--	</Button>-->
+			<!--</div>-->
 		</div>
 		<Highlight language={kotlin} code={registerCommandCode} />
 	</div>
@@ -175,18 +175,18 @@ fun onJoin(e: PlayerJoinEvent) {
 				<span class="block text-primary">快速监听事件</span>
 			</h2>
 			<p class="mt-6 text-lg/8 text-gray-600 dark:text-gray-300">
-				TabooLib提供了一个简单的事件监听注解，可以让你在几行代码内完成事件的监听。
+				一个注解, 写在任何地方。
 			</p>
-			<div class="mt-8 flex flex-wrap gap-x-3 gap-y-1.5">
-				<Button href="/examples/listener">监听器实例</Button>
-				<Button
-					class="border-primary text-primary hover:text-primary"
-					variant="outline"
-					href="https://docs.tabooproject.org/"
-				>
-					监听器文档
-				</Button>
-			</div>
+			<!--<div class="mt-8 flex flex-wrap gap-x-3 gap-y-1.5">-->
+			<!--	<Button href="/examples/listener">监听器实例</Button>-->
+			<!--	<Button-->
+			<!--		class="border-primary text-primary hover:text-primary"-->
+			<!--		variant="outline"-->
+			<!--		href="https://docs.tabooproject.org/"-->
+			<!--	>-->
+			<!--		监听器文档-->
+			<!--	</Button>-->
+			<!--</div>-->
 		</div>
 		<Highlight language={kotlin} code={subscribeEventCode} />
 	</div>
@@ -197,8 +197,8 @@ fun onJoin(e: PlayerJoinEvent) {
 			<h2
 				class="pixel-12 text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl lg:text-5xl"
 			>
-				超丰富的
-				<span class="block text-primary">魔法般的工具</span>
+				还有一些
+				<span class="block text-primary">魔术般的工具</span>
 			</h2>
 		</div>
 		<div class="grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-4">
