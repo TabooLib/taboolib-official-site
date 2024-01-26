@@ -32,11 +32,13 @@
 		},
 		{
 			name: '快速开始',
-			href: '/quickstart'
+			href: '/quickstart',
+			disabled: true
 		},
 		{
 			name: '组件市场',
-			href: '/market'
+			href: '/market',
+			disabled: true
 		},
 		{
 			name: '开发文档',
@@ -44,7 +46,8 @@
 		},
 		{
 			name: '优秀案例',
-			href: '/showcases'
+			href: '/showcases',
+			disabled: true
 		}
 	];
 </script>
@@ -75,7 +78,9 @@
 							? 'page'
 							: undefined}
 				>
-					<a href={nav.href}>{nav.name}</a>
+					<button disabled={nav.disabled} class="disabled:pointer-events-none disabled:opacity-50">
+						<a href={nav.href}>{nav.name}</a>
+					</button>
 				</li>
 			{/each}
 		</ul>
@@ -122,7 +127,12 @@
 											: undefined}
 									class="py-2"
 								>
-									<a on:click={() => (open = false)} href={nav.href}>{nav.name}</a>
+									<button
+										disabled={nav.disabled}
+										class="disabled:pointer-events-none disabled:opacity-50"
+									>
+										<a on:click={() => (open = false)} href={nav.href}>{nav.name}</a>
+									</button>
 								</li>
 							{/each}
 						</ul>
