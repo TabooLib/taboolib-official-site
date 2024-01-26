@@ -8,20 +8,15 @@
 	import TaboolibIcon from '$lib/components/icons/TaboolibIcon.svelte';
 	import { reveal } from 'svelte-reveal';
 
-	const registerCommandCode = `command("tp") {
-    literal("random") {
-        execute<ProxyPlayer> { sender, _, _ ->
-            sender.teleport(sender.entities().randomOrNull() ?: return@execute)
-        }
-    }
-    player {
-        execute<ProxyPlayer> { sender, ctx, _ ->
-            sender.teleport(ctx.player())
-        }
-    }
+	const registerCommandCode = `command("test") {
+	dynamic("args") {
+	    execute<ProxyPlayer> { sender, ctx, _ ->
+	        sender.teleport("Hello \${ctx["args"]}!")
+	    }
+	}
     execute<ProxyPlayer> { sender, _, _ ->
-        sender.teleport(sender.entityNearly() ?: return@execute)
-    }
+	    sender.teleport("Hello TabooLib!")
+	}
 }`;
 	const subscribeEventCode = `@SubscribeEvent
 fun onJoin(e: PlayerJoinEvent) {
@@ -36,46 +31,50 @@ fun onJoin(e: PlayerJoinEvent) {
 
 	const tools = [
 		{
-			title: '箱子菜单构建',
-			description:
-				'TabooLib提供了一个简单的箱子菜单构建工具，可以让你高效快速的构建仓库/商店/多页菜单等内容。',
-			href: 'https://docs.tabooproject.org/menu'
-		},
-		{
-			title: '物品构建',
-			description: 'TabooLib提供了一个简单的物品构建工具，可以让你更加方便的构建物品。',
-			href: 'https://docs.tabooproject.org/item'
-		},
-		{
 			title: 'NMS',
-			description: 'TabooLib提供了一个简单的NMS工具，可以让你用简单的代码完成NMS的操作。',
-			href: 'https://docs.tabooproject.org/nms'
+			description: '跨版本 NMS 工具, TabooLib 的经典功能!',
+			href: 'https://docs.tabooproject.org'
 		},
 		{
-			title: '配置文件',
-			description: 'TabooLib提供了一个简单的配置文件工具，可以让你轻松实现配置文件的读写。',
-			href: 'https://docs.tabooproject.org/config'
+			title: 'NMS-Utils',
+			description: '勾史',
+			href: 'https://docs.tabooproject.org'
 		},
 		{
-			title: '国际化',
-			description: 'TabooLib提供了一个简单的国际化工具，可以让你的插件支持多语言。',
-			href: 'https://docs.tabooproject.org/i18n'
+			title: 'UI',
+			description: '快速构建箱子菜单, 支持虚拟化!',
+			href: 'https://docs.tabooproject.org'
 		},
 		{
-			title: '数据库',
-			description: 'TabooLib提供了一个简单的数据库工具，可以让你轻松实现数据库的读写。',
-			href: 'https://docs.tabooproject.org/database'
+			title: 'Kether',
+			description: '内建脚本解决方案',
+			href: 'https://docs.tabooproject.org'
 		},
 		{
-			title: '粒子效果',
-			description: 'TabooLib提供了一个简单的粒子效果工具，可以让你轻松实现粒子效果的创建与播放。',
-			href: 'https://docs.tabooproject.org/particle'
+			title: 'Database',
+			description: '勾史',
+			href: 'https://docs.tabooproject.org'
 		},
 		{
-			title: '寻路',
-			description: 'TabooLib提供了一个简单的寻路工具，可以让你轻松实现寻路算法的使用。',
-			href: 'https://docs.tabooproject.org/pathfinder'
-		}
+			title: 'Configuration',
+			description: '配置文件模块, 必选工具了属实是',
+			href: 'https://docs.tabooproject.org'
+		},
+		{
+			title: 'Lang',
+			description: '语言文件模块 (I18n)',
+			href: 'https://docs.tabooproject.org'
+		},
+		{
+			title: 'Chat',
+			description: '文字颜色以及 Raw 信息构建工具',
+			href: 'https://docs.tabooproject.org'
+		},
+		{
+			title: 'AI (Pathfinder)',
+			description: '自定义生物 AI 工具',
+			href: 'https://docs.tabooproject.org'
+		},
 	];
 </script>
 
@@ -83,7 +82,7 @@ fun onJoin(e: PlayerJoinEvent) {
 	<title>首页 | TabooLib</title>
 	<meta
 		name="description"
-		content="TabooLib 是一个现代化的 Minecraft 开发框架，旨在提供快速、安全的软件和丰富的插件 API。"
+		content="现代化的 Minecraft 跨平台服务端开发框架。"
 	/>
 	{@html nord}
 </svelte:head>
@@ -102,26 +101,26 @@ fun onJoin(e: PlayerJoinEvent) {
 					href="https://github.com/TabooLib/taboolib"
 					target="_blank"
 				>
-					TabooLib v6 已发布
+					TabooLib v6.1 已发布
 					<ArrowRight class="ml-2" />
 				</Button>
 			</div>
 			<h1
 				class="pixel-12 text-5xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-7xl"
 			>
-				一个现代化的
+				现代化
 				<br />
-				<span class="block text-primary lg:inline-block">Minecraft开发框架</span>
+				<span class="block text-primary lg:inline-block">跨平台服务端插件开发框架</span>
 			</h1>
 			<p
 				class="pixel-12 mt-6 text-lg tracking-tight text-gray-600 dark:text-gray-300 md:px-24 lg:px-48"
 			>
-				TabooLib是一个基于Kotlin的跨平台框架，旨在提供快速、安全的软件和丰富的插件API。
+				基于 Kotlin，为 Minecraft (Java 版) 服务端提供一个跨平台插件开发框架
 				<br />
-				作为Minecraft中最广泛使用、性能最佳、稳定性最高的软件之一，TabooLib提供快速更新和有益的支持，旨在改善Minecraft的生态系统。
+				旨在替代频繁的操作，以及解决一些令人头疼的问题
 			</p>
 			<div class="mt-10 flex flex-wrap justify-center gap-x-6 gap-y-3">
-				<Button href="/quickstart">快速开始</Button>
+				<Button href="https://github.com/taboolib/taboolib-sdk">快速开始</Button>
 				<Button
 					class="border-primary text-primary hover:text-primary"
 					variant="outline"
@@ -142,22 +141,24 @@ fun onJoin(e: PlayerJoinEvent) {
 			<h2
 				class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl lg:text-5xl"
 			>
-				利用 TabooLib
-				<span class="block text-primary">快速注册命令</span>
+				快速
+				<span class="block text-primary">注册跨平台命令</span>
 			</h2>
 			<p class="mt-6 text-lg/8 text-gray-600 dark:text-gray-300">
-				TabooLib提供了一个简单的命令注册dsl，可以让你在几行代码内完成命令的注册。
+				据说 TabooLib 提供了一个命令工具，可以飞速完成命令注册。
+			    <br />
+				但是用了都说垃圾。
 			</p>
-			<div class="mt-8 flex flex-wrap gap-x-3 gap-y-1.5">
-				<Button href="/examples/command">注册实例</Button>
-				<Button
-					class="border-primary text-primary hover:text-primary"
-					variant="outline"
-					href="https://docs.tabooproject.org/"
-				>
-					命令文档
-				</Button>
-			</div>
+			<!--<div class="mt-8 flex flex-wrap gap-x-3 gap-y-1.5">-->
+			<!--	<Button href="/examples/command">注册实例</Button>-->
+			<!--	<Button-->
+			<!--		class="border-primary text-primary hover:text-primary"-->
+			<!--		variant="outline"-->
+			<!--		href="https://docs.tabooproject.org/"-->
+			<!--	>-->
+			<!--		命令文档-->
+			<!--	</Button>-->
+			<!--</div>-->
 		</div>
 		<Highlight language={kotlin} code={registerCommandCode} />
 	</div>
@@ -171,22 +172,22 @@ fun onJoin(e: PlayerJoinEvent) {
 			<h2
 				class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl lg:text-5xl"
 			>
-				利用 TabooLib
-				<span class="block text-primary">快速监听事件</span>
+				快速
+				<span class="block text-primary">监听事件</span>
 			</h2>
 			<p class="mt-6 text-lg/8 text-gray-600 dark:text-gray-300">
-				TabooLib提供了一个简单的事件监听注解，可以让你在几行代码内完成事件的监听。
+				只需一个注解, 写在任何地方。
 			</p>
-			<div class="mt-8 flex flex-wrap gap-x-3 gap-y-1.5">
-				<Button href="/examples/listener">监听器实例</Button>
-				<Button
-					class="border-primary text-primary hover:text-primary"
-					variant="outline"
-					href="https://docs.tabooproject.org/"
-				>
-					监听器文档
-				</Button>
-			</div>
+			<!--<div class="mt-8 flex flex-wrap gap-x-3 gap-y-1.5">-->
+			<!--	<Button href="/examples/listener">监听器实例</Button>-->
+			<!--	<Button-->
+			<!--		class="border-primary text-primary hover:text-primary"-->
+			<!--		variant="outline"-->
+			<!--		href="https://docs.tabooproject.org/"-->
+			<!--	>-->
+			<!--		监听器文档-->
+			<!--	</Button>-->
+			<!--</div>-->
 		</div>
 		<Highlight language={kotlin} code={subscribeEventCode} />
 	</div>
@@ -197,8 +198,8 @@ fun onJoin(e: PlayerJoinEvent) {
 			<h2
 				class="pixel-12 text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl lg:text-5xl"
 			>
-				超丰富的
-				<span class="block text-primary">魔法般的工具</span>
+				还有一些
+				<span class="block text-primary">魔术般的工具</span>
 			</h2>
 		</div>
 		<div class="grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-4">
