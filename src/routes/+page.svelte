@@ -9,9 +9,14 @@
 	import { reveal } from 'svelte-reveal';
 
 	const registerCommandCode = `command("test") {
+	dynamic("args") {
+	    execute<ProxyPlayer> { sender, ctx, _ ->
+	        sender.teleport("Hello \${ctx["args"]}!")
+	    }
+	}
     execute<ProxyPlayer> { sender, _, _ ->
-        sender.teleport("Hello TabooLib!")
-    }
+	    sender.teleport("Hello TabooLib!")
+	}
 }`;
 	const subscribeEventCode = `@SubscribeEvent
 fun onJoin(e: PlayerJoinEvent) {
@@ -26,46 +31,25 @@ fun onJoin(e: PlayerJoinEvent) {
 
 	const tools = [
 		{
-			title: '箱子菜单构建',
-			description:
-				'TabooLib提供了一个简单的箱子菜单构建工具，可以让你高效快速的构建仓库/商店/多页菜单等内容。',
-			href: 'https://docs.tabooproject.org/menu'
-		},
-		{
-			title: '物品构建',
-			description: 'TabooLib提供了一个简单的物品构建工具，可以让你更加方便的构建物品。',
-			href: 'https://docs.tabooproject.org/item'
-		},
-		{
 			title: 'NMS',
-			description: 'TabooLib提供了一个简单的NMS工具，可以让你用简单的代码完成NMS的操作。',
-			href: 'https://docs.tabooproject.org/nms'
+			description: '跨版本 NMS 工具, TabooLib 的经典功能!',
+			href: 'https://docs.tabooproject.org'
 		},
 		{
-			title: '配置文件',
-			description: 'TabooLib提供了一个简单的配置文件工具，可以让你轻松实现配置文件的读写。',
-			href: 'https://docs.tabooproject.org/config'
+			title: 'UI',
+			description: '快速构建箱子菜单, 支持虚拟化!',
+			href: 'https://docs.tabooproject.org'
 		},
 		{
-			title: '国际化',
-			description: 'TabooLib提供了一个简单的国际化工具，可以让你的插件支持多语言。',
-			href: 'https://docs.tabooproject.org/i18n'
+			title: 'Kether',
+			description: '内建脚本解决方案',
+			href: 'https://docs.tabooproject.org'
 		},
 		{
-			title: '数据库',
-			description: 'TabooLib提供了一个简单的数据库工具，可以让你轻松实现数据库的读写。',
-			href: 'https://docs.tabooproject.org/database'
+			title: 'Database',
+			description: '勾史',
+			href: 'https://docs.tabooproject.org'
 		},
-		{
-			title: '粒子效果',
-			description: 'TabooLib提供了一个简单的粒子效果工具，可以让你轻松实现粒子效果的创建与播放。',
-			href: 'https://docs.tabooproject.org/particle'
-		},
-		{
-			title: '寻路',
-			description: 'TabooLib提供了一个简单的寻路工具，可以让你轻松实现寻路算法的使用。',
-			href: 'https://docs.tabooproject.org/pathfinder'
-		}
 	];
 </script>
 
@@ -73,7 +57,7 @@ fun onJoin(e: PlayerJoinEvent) {
 	<title>首页 | TabooLib</title>
 	<meta
 		name="description"
-		content="现代化的 Minecraft 跨平台服务端插件开发框架。"
+		content="现代化的 Minecraft 跨平台服务端开发框架。"
 	/>
 	{@html nord}
 </svelte:head>
@@ -101,12 +85,12 @@ fun onJoin(e: PlayerJoinEvent) {
 			>
 				现代化
 				<br />
-				<span class="block text-primary lg:inline-block">跨平台插件开发框架</span>
+				<span class="block text-primary lg:inline-block">跨平台开发框架</span>
 			</h1>
 			<p
 				class="pixel-12 mt-6 text-lg tracking-tight text-gray-600 dark:text-gray-300 md:px-24 lg:px-48"
 			>
-				基于 Kotlin，为 Minecraft (Java 版) 提供一个跨平台的插件开发框架
+				基于 Kotlin，为 Minecraft (Java 版) 提供一个跨平台的开发框架
 				<br />
 				旨在替代频繁的操作，以及解决一些令人头疼的问题
 			</p>
@@ -133,10 +117,12 @@ fun onJoin(e: PlayerJoinEvent) {
 				class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl lg:text-5xl"
 			>
 				快速
-				<span class="block text-primary">注册命令</span>
+				<span class="block text-primary">注册跨平台命令</span>
 			</h2>
 			<p class="mt-6 text-lg/8 text-gray-600 dark:text-gray-300">
 				TabooLib 提供了一个极速的命令工具，可以在几行内完成命令注册。
+			    <br />
+				用了都说垃圾。
 			</p>
 			<!--<div class="mt-8 flex flex-wrap gap-x-3 gap-y-1.5">-->
 			<!--	<Button href="/examples/command">注册实例</Button>-->
@@ -165,7 +151,7 @@ fun onJoin(e: PlayerJoinEvent) {
 				<span class="block text-primary">监听事件</span>
 			</h2>
 			<p class="mt-6 text-lg/8 text-gray-600 dark:text-gray-300">
-				只需一个注解, 写在「任何」地方。
+				只需一个注解, 写在任何地方。
 			</p>
 			<!--<div class="mt-8 flex flex-wrap gap-x-3 gap-y-1.5">-->
 			<!--	<Button href="/examples/listener">监听器实例</Button>-->
