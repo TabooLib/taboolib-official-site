@@ -110,12 +110,12 @@ fun onJoin(e: PlayerJoinEvent) {
 			>
 				现代化
 				<br />
-				<span class="block text-primary lg:inline-block">跨平台 Minecraft 服务端开发框架</span>
+				<span class="block text-primary lg:inline-block">跨平台服务端插件开发框架</span>
 			</h1>
 			<p
 				class="pixel-12 mt-6 text-lg tracking-tight text-gray-600 dark:text-gray-300 md:px-24 lg:px-48"
 			>
-				基于 Kotlin，为 Minecraft (Java 版) 服务端提供一个跨平台的开发框架
+				基于 Kotlin，为 Minecraft (Java 版) 服务端提供一个跨平台插件开发框架
 				<br />
 				旨在替代频繁的操作，以及解决一些令人头疼的问题
 			</p>
