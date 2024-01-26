@@ -145,9 +145,9 @@ fun onJoin(e: PlayerJoinEvent) {
 				<span class="block text-primary">注册跨平台命令</span>
 			</h2>
 			<p class="mt-6 text-lg/8 text-gray-600 dark:text-gray-300">
-				TabooLib 提供了一个极速的命令工具，可以在几行内完成命令注册。
+				据说 TabooLib 提供了一个命令工具，可以飞速完成命令注册。
 			    <br />
-				用了都说垃圾。
+				但是用了都说垃圾。
 			</p>
 			<!--<div class="mt-8 flex flex-wrap gap-x-3 gap-y-1.5">-->
 			<!--	<Button href="/examples/command">注册实例</Button>-->
