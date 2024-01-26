@@ -36,6 +36,11 @@ fun onJoin(e: PlayerJoinEvent) {
 			href: 'https://docs.tabooproject.org'
 		},
 		{
+			title: 'NMS-Utils',
+			description: '勾史',
+			href: 'https://docs.tabooproject.org'
+		},
+		{
 			title: 'UI',
 			description: '快速构建箱子菜单, 支持虚拟化!',
 			href: 'https://docs.tabooproject.org'
@@ -48,6 +53,26 @@ fun onJoin(e: PlayerJoinEvent) {
 		{
 			title: 'Database',
 			description: '勾史',
+			href: 'https://docs.tabooproject.org'
+		},
+		{
+			title: 'Configuration',
+			description: '配置文件模块, 必选工具了属实是',
+			href: 'https://docs.tabooproject.org'
+		},
+		{
+			title: 'Lang',
+			description: '语言文件模块 (I18n)',
+			href: 'https://docs.tabooproject.org'
+		},
+		{
+			title: 'Chat',
+			description: '文字颜色以及 Raw 信息构建工具',
+			href: 'https://docs.tabooproject.org'
+		},
+		{
+			title: 'AI (Pathfinder)',
+			description: '自定义生物 AI 工具',
 			href: 'https://docs.tabooproject.org'
 		},
 	];
@@ -85,12 +110,12 @@ fun onJoin(e: PlayerJoinEvent) {
 			>
 				现代化
 				<br />
-				<span class="block text-primary lg:inline-block">跨平台开发框架</span>
+				<span class="block text-primary lg:inline-block">跨平台 Minecraft 服务端开发框架</span>
 			</h1>
 			<p
 				class="pixel-12 mt-6 text-lg tracking-tight text-gray-600 dark:text-gray-300 md:px-24 lg:px-48"
 			>
-				基于 Kotlin，为 Minecraft (Java 版) 提供一个跨平台的开发框架
+				基于 Kotlin，为 Minecraft (Java 版) 服务端提供一个跨平台的开发框架
 				<br />
 				旨在替代频繁的操作，以及解决一些令人头疼的问题
 			</p>
