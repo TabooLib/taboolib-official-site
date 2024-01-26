@@ -112,7 +112,7 @@
 						class="mt-3 flex items-center justify-center gap-x-1.5 lg:order-1 lg:mt-0 lg:flex-1 lg:justify-start"
 					>
 						<p class="text-sm text-gray-500 dark:text-gray-400">
-							Copyright © 2024 <B>TABOO-PROJECT</B> Web Site Designed by
+							Copyright © 2024 <b>TABOO-PROJECT</b> Web Site Designed by
 							<a
 								class="hover:underline"
 								href="https://github.com/Leosouthey"
