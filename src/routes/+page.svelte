@@ -39,42 +39,42 @@ fun onJoin(e: PlayerJoinEvent) {
 			title: '箱子菜单构建',
 			description:
 				'TabooLib提供了一个简单的箱子菜单构建工具，可以让你高效快速的构建仓库/商店/多页菜单等内容。',
-			href: '/docs/menu'
+			href: 'https://docs.tabooproject.org/menu'
 		},
 		{
 			title: '物品构建',
 			description: 'TabooLib提供了一个简单的物品构建工具，可以让你更加方便的构建物品。',
-			href: '/docs/item'
+			href: 'https://docs.tabooproject.org/item'
 		},
 		{
 			title: 'NMS',
 			description: 'TabooLib提供了一个简单的NMS工具，可以让你用简单的代码完成NMS的操作。',
-			href: '/docs/nms'
+			href: 'https://docs.tabooproject.org/nms'
 		},
 		{
 			title: '配置文件',
 			description: 'TabooLib提供了一个简单的配置文件工具，可以让你轻松实现配置文件的读写。',
-			href: '/docs/config'
+			href: 'https://docs.tabooproject.org/config'
 		},
 		{
 			title: '国际化',
 			description: 'TabooLib提供了一个简单的国际化工具，可以让你的插件支持多语言。',
-			href: '/docs/i18n'
+			href: 'https://docs.tabooproject.org/i18n'
 		},
 		{
 			title: '数据库',
 			description: 'TabooLib提供了一个简单的数据库工具，可以让你轻松实现数据库的读写。',
-			href: '/docs/database'
+			href: 'https://docs.tabooproject.org/database'
 		},
 		{
 			title: '粒子效果',
 			description: 'TabooLib提供了一个简单的粒子效果工具，可以让你轻松实现粒子效果的创建与播放。',
-			href: '/docs/particle'
+			href: 'https://docs.tabooproject.org/particle'
 		},
 		{
 			title: '寻路',
 			description: 'TabooLib提供了一个简单的寻路工具，可以让你轻松实现寻路算法的使用。',
-			href: '/docs/pathfinder'
+			href: 'https://docs.tabooproject.org/pathfinder'
 		}
 	];
 </script>
@@ -125,7 +125,7 @@ fun onJoin(e: PlayerJoinEvent) {
 				<Button
 					class="border-primary text-primary hover:text-primary"
 					variant="outline"
-					href="/quickstart"
+					href="https://docs.tabooproject.org"
 				>
 					查看文档
 				</Button>
@@ -153,7 +153,7 @@ fun onJoin(e: PlayerJoinEvent) {
 				<Button
 					class="border-primary text-primary hover:text-primary"
 					variant="outline"
-					href="/docs"
+					href="https://docs.tabooproject.org/"
 				>
 					命令文档
 				</Button>
@@ -182,7 +182,7 @@ fun onJoin(e: PlayerJoinEvent) {
 				<Button
 					class="border-primary text-primary hover:text-primary"
 					variant="outline"
-					href="/docs"
+					href="https://docs.tabooproject.org/"
 				>
 					监听器文档
 				</Button>

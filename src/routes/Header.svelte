@@ -40,7 +40,7 @@
 		},
 		{
 			name: '开发文档',
-			href: '/docs'
+			href: 'https://docs.tabooproject.org'
 		},
 		{
 			name: '优秀案例',
@@ -66,7 +66,15 @@
 		</div>
 		<ul class="hidden items-center gap-x-8 lg:flex">
 			{#each navs as nav}
-				<li aria-current={nav.href === "/" ? $page.url.pathname === nav.href ? 'page' : undefined : $page.url.pathname.startsWith(nav.href) ? 'page' : undefined}>
+				<li
+					aria-current={nav.href === '/'
+						? $page.url.pathname === nav.href
+							? 'page'
+							: undefined
+						: $page.url.pathname.startsWith(nav.href)
+							? 'page'
+							: undefined}
+				>
 					<a href={nav.href}>{nav.name}</a>
 				</li>
 			{/each}
@@ -105,7 +113,13 @@
 						<ul class="mt-2">
 							{#each navs as nav}
 								<li
-									aria-current={nav.href === "/" ? $page.url.pathname === nav.href ? 'page' : undefined : $page.url.pathname.startsWith(nav.href) ? 'page' : undefined}
+									aria-current={nav.href === '/'
+										? $page.url.pathname === nav.href
+											? 'page'
+											: undefined
+										: $page.url.pathname.startsWith(nav.href)
+											? 'page'
+											: undefined}
 									class="py-2"
 								>
 									<a on:click={() => (open = false)} href={nav.href}>{nav.name}</a>
