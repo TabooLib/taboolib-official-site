@@ -38,6 +38,10 @@
 				{
 					title: 'TabooLib SDK',
 					href: 'https://github.com/TabooLib/taboolib-sdk'
+				},
+				{
+					title: 'TabooLib SDK (多模块项目)',
+					href: 'https://github.com/taboolib/taboolib-multi-module-sdk'
 				}
 			]
 		},
