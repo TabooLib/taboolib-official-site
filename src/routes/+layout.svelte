@@ -53,6 +53,15 @@
 					href: 'https://github.com/Leosouthey'
 				}
 			]
+		},
+		{
+			title: '非官方文档',
+			items: [
+				{
+					title: '枫溪的 TabooLib 使用手册',
+					href: 'https://iki9o5w080.feishu.cn/wiki/GtVewhATfiKy0xkOKyHcRch9nLg'
+				}
+			]
 		}
 	];
 </script>
