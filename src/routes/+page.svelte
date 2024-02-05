@@ -126,7 +126,14 @@ fun onJoin(e: PlayerJoinEvent) {
 					variant="outline"
 					href="https://docs.tabooproject.org"
 				>
-					查看文档
+					官方文档
+				</Button>
+				<Button
+					class="border-primary text-primary hover:text-primary"
+					variant="outline"
+					href="https://iki9o5w080.feishu.cn/wiki/PLfAw1gzsiIBCgkr4slcNp8ln7N"
+				>
+					非官方文档
 				</Button>
 			</div>
 		</div>
