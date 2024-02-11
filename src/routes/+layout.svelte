@@ -50,7 +50,7 @@
 			items: [
 				{
 					title: '枫溪的 TabooLib 使用手册',
-					href: 'https://iki9o5w080.feishu.cn/wiki/GtVewhATfiKy0xkOKyHcRch9nLg'
+					href: 'https://taboolib.feishu.cn/wiki/Lzf8wFEsfiHclskCuGkctoUNn9b'
 				}
 			]
 		},
