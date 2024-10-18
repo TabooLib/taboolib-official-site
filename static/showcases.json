@@ -3,5 +3,10 @@
 		"name": "BilibiliVideo",
 		"link": "https://github.com/BingZi-233/BilibiliVideo",
 		"image": "./images/bilibili-video.png"
+	},
+	{
+		"name": "TabooMVC",
+		"link": "https://github.com/FxRayHughes/TabooMVC",
+		"image": "./images/taboo-mvc.png"
 	}
 ]
