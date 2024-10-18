@@ -31,23 +31,12 @@
 			href: '/'
 		},
 		{
-			name: '快速开始',
-			href: '/quickstart',
-			disabled: true
-		},
-		{
-			name: '组件市场',
-			href: '/market',
-			disabled: true
-		},
-		{
 			name: '开发文档',
 			href: 'https://docs.tabooproject.org'
 		},
 		{
 			name: '优秀案例',
-			href: '/showcases',
-			disabled: true
+			href: '/showcases'
 		}
 	];
 </script>
@@ -78,7 +67,7 @@
 							? 'page'
 							: undefined}
 				>
-					<button disabled={nav.disabled} class="disabled:pointer-events-none disabled:opacity-50">
+					<button class="disabled:pointer-events-none disabled:opacity-50">
 						<a href={nav.href}>{nav.name}</a>
 					</button>
 				</li>
@@ -127,10 +116,7 @@
 											: undefined}
 									class="py-2"
 								>
-									<button
-										disabled={nav.disabled}
-										class="disabled:pointer-events-none disabled:opacity-50"
-									>
+									<button class="disabled:pointer-events-none disabled:opacity-50">
 										<a on:click={() => (open = false)} href={nav.href}>{nav.name}</a>
 									</button>
 								</li>

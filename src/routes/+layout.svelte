@@ -58,8 +58,8 @@
 			title: '友情链接',
 			items: [
 				{
-					title: 'Leosouthey',
-					href: 'https://github.com/Leosouthey'
+					title: 'LioRael',
+					href: 'https://github.com/LioRael'
 				}
 			]
 		}
@@ -128,9 +128,9 @@
 							Copyright © 2024 <b>TABOO-PROJECT</b> Web Site Designed by
 							<a
 								class="hover:underline"
-								href="https://github.com/Leosouthey"
+								href="https://github.com/LioRael"
 								target="_blank"
-								rel="noopener noreferrer">Leosouthey</a
+								rel="noopener noreferrer">LioRael</a
 							>
 							-
 							<a
