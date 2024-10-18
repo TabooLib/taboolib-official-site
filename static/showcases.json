@@ -8,5 +8,10 @@
 		"name": "TabooMVC",
 		"link": "https://github.com/FxRayHughes/TabooMVC",
 		"image": "./images/taboo-mvc.png"
+	},
+	{
+		"name": "Adyeshach",
+		"link": "https://github.com/SacredCraft/adyeshach",
+		"image": "./images/adyeshach.png"
 	}
 ]
