@@ -23,7 +23,7 @@
 		<div class="mt-6">
 			<Button
 				class="shadow-inner"
-				href="https://github.com/TabooLib/taboolib/issues"
+				href="https://github.com/TabooLib/website/discussions"
 				target="_blank"
 			>
 				<Plus class="mr-2" />提交项目
