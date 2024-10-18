@@ -7,10 +7,15 @@
 	{
 		"name": "TabooMVC",
 		"link": "https://github.com/FxRayHughes/TabooMVC",
-		"image": "./images/taboo-mvc.png"
+		"image": "./images/taboo-mvc.jpg"
 	},
 	{
-		"name": "Adyeshach",
+		"name": "Aiyatsbus (附魔扩展)",
+		"link": "https://github.com/MCStarrySky/Aiyatsbus",
+		"image": "./images/aiyatsbus.png"
+	},
+	{
+		"name": "Adyeshach (虚拟实体)",
 		"link": "https://github.com/SacredCraft/adyeshach",
 		"image": "./images/adyeshach.png"
 	}

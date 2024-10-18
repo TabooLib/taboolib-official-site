@@ -19,7 +19,7 @@
 <main class="pb-16">
 	<div class="container my-12 text-center">
 		<p class="text-fd-muted-foreground text-lg">基于 TabooLib 的</p>
-		<h1 class="mb-4 text-3xl font-semibold leading-snug md:text-5xl md:leading-snug">牛逼项目</h1>
+		<h1 class="mb-4 text-3xl font-semibold leading-snug md:text-5xl md:leading-snug text-primary">开源项目</h1>
 		<div class="mt-6">
 			<Button
 				class="shadow-inner"
