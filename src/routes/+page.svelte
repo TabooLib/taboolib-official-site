@@ -120,13 +120,20 @@ fun onJoin(e: PlayerJoinEvent) {
 				旨在替代频繁的操作，以及解决一些令人头疼的问题
 			</p>
 			<div class="mt-10 flex flex-wrap justify-center gap-x-6 gap-y-3">
-				<Button href="https://github.com/taboolib/taboolib-sdk">快速开始</Button>
+				<Button href="https://docs.tabooproject.org/plugin/start">快速开始</Button>
 				<Button
 					class="border-primary text-primary hover:text-primary"
 					variant="outline"
 					href="https://docs.tabooproject.org"
 				>
-					查看文档
+					官方文档
+				</Button>
+				<Button
+					class="border-primary text-primary hover:text-primary"
+					variant="outline"
+					href="https://taboolib.feishu.cn/wiki/Lzf8wFEsfiHclskCuGkctoUNn9b"
+				>
+					非官方文档
 				</Button>
 			</div>
 		</div>
@@ -173,7 +180,7 @@ fun onJoin(e: PlayerJoinEvent) {
 				class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl lg:text-5xl"
 			>
 				快速
-				<span class="block text-primary">监听事件</span>
+				<span class="block text-primary">监听游戏事件</span>
 			</h2>
 			<p class="mt-6 text-lg/8 text-gray-600 dark:text-gray-300">
 				只需一个注解, 写在任何地方。

@@ -38,6 +38,19 @@
 				{
 					title: 'TabooLib SDK',
 					href: 'https://github.com/TabooLib/taboolib-sdk'
+				},
+				{
+					title: 'TabooLib SDK (多模块项目)',
+					href: 'https://github.com/taboolib/taboolib-multi-module-sdk'
+				}
+			]
+		},
+		{
+			title: '非官方文档',
+			items: [
+				{
+					title: '枫溪的 TabooLib 使用手册',
+					href: 'https://taboolib.feishu.cn/wiki/Lzf8wFEsfiHclskCuGkctoUNn9b'
 				}
 			]
 		},
